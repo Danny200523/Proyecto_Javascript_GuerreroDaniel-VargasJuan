@@ -38,107 +38,29 @@
             align-items: center;
             justify-content: center;
             perspective: 1000px;
+            position: relative;
         }
 
-        /* Contenedor principal con efecto 3D */
+        /* Video de fondo */
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -100;
+            object-fit: cover;
+        }
+
+        /* Contenedor principal */
         .container {
             width: 100%;
-            max-width: 1400px;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             z-index: 1;
-        }
-
-        /* Elementos decorativos geométricos */
-        .geometric-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .geo-element {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.1;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            animation: float 15s infinite ease-in-out;
-        }
-
-        .geo-element:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            top: -150px;
-            left: -150px;
-            animation-delay: 0s;
-        }
-
-        .geo-element:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            bottom: -100px;
-            right: -100px;
-            animation-delay: -5s;
-        }
-
-        .geo-element:nth-child(3) {
-            width: 150px;
-            height: 150px;
-            top: 70%;
-            left: 20%;
-            animation-delay: -2s;
-        }
-
-        .geo-element:nth-child(4) {
-            width: 100px;
-            height: 100px;
-            top: 20%;
-            right: 15%;
-            animation-delay: -7s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) scale(1);
-            }
-            50% {
-                transform: translateY(-20px) scale(1.05);
-            }
-        }
-
-        /* Líneas de cuadrícula */
-        .grid-lines {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .horizontal-line, .vertical-line {
-            position: absolute;
-            background: linear-gradient(90deg, transparent, rgba(225, 6, 0, 0.2), transparent);
-            opacity: 0.1;
-        }
-
-        .horizontal-line {
-            width: 100%;
-            height: 1px;
-        }
-
-        .vertical-line {
-            width: 1px;
-            height: 100%;
-            background: linear-gradient(180deg, transparent, rgba(0, 210, 190, 0.2), transparent);
         }
 
         /* Tarjeta de login futurista */
@@ -195,34 +117,6 @@
             }
             100% {
                 background-position: 0% 50%;
-            }
-        }
-
-        /* Efecto de líneas de velocidad */
-        .speed-lines {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        .speed-line {
-            position: absolute;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-            animation: speedLine 2s linear infinite;
-            opacity: 0.3;
-        }
-
-        @keyframes speedLine {
-            0% {
-                transform: translateX(-100%) translateY(0);
-            }
-            100% {
-                transform: translateX(100%) translateY(20px);
             }
         }
 
@@ -415,6 +309,57 @@
                 opacity: 0;
                 transform: scale(1.5);
             }
+        }
+
+        /* Semáforo de F1 */
+        .f1-lights {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0 20px;
+        }
+
+        .light-dot {
+            width: 15px;
+            height: 15px;
+            background-color: #333;
+            border-radius: 50%;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        /* Animación cuando se pasa el cursor sobre el botón */
+        .login-btn:hover ~ .f1-lights .light-dot {
+            background-color: #ff0000;
+            box-shadow: 0 0 10px 5px rgba(255, 0, 0, 0.5);
+            animation: lightSequence 1s forwards;
+        }
+
+        @keyframes lightSequence {
+            0%, 20% {
+                background-color: #ff0000;
+            }
+            80%, 100% {
+                background-color: #00ff00;
+                box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.5);
+            }
+        }
+
+        /* Retrasos para la secuencia de luces */
+        .login-btn:hover ~ .f1-lights .light-dot:nth-child(1) {
+            animation-delay: 0s;
+        }
+        .login-btn:hover ~ .f1-lights .light-dot:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+        .login-btn:hover ~ .f1-lights .light-dot:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+        .login-btn:hover ~ .f1-lights .light-dot:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+        .login-btn:hover ~ .f1-lights .light-dot:nth-child(5) {
+            animation-delay: 0.4s;
         }
 
         /* Enlaces adicionales */
@@ -702,40 +647,11 @@
     </style>
 </head>
 <body>
-    <!-- Elementos geométricos decorativos -->
-    <div class="geometric-elements">
-        <div class="geo-element"></div>
-        <div class="geo-element"></div>
-        <div class="geo-element"></div>
-        <div class="geo-element"></div>
-    </div>
-
-    <!-- Líneas de cuadrícula -->
-    <div class="grid-lines">
-        <div class="horizontal-line" style="top: 10%;"></div>
-        <div class="horizontal-line" style="top: 30%;"></div>
-        <div class="horizontal-line" style="top: 50%;"></div>
-        <div class="horizontal-line" style="top: 70%;"></div>
-        <div class="horizontal-line" style="top: 90%;"></div>
-        
-        <div class="vertical-line" style="left: 20%;"></div>
-        <div class="vertical-line" style="left: 40%;"></div>
-        <div class="vertical-line" style="left: 60%;"></div>
-        <div class="vertical-line" style="left: 80%;"></div>
-    </div>
-
-    <!-- Líneas de velocidad -->
-    <div class="speed-lines">
-        <div class="speed-line" style="top: 15%; width: 150px; animation-duration: 2s;"></div>
-        <div class="speed-line" style="top: 25%; width: 200px; animation-duration: 1.8s;"></div>
-        <div class="speed-line" style="top: 35%; width: 120px; animation-duration: 2.2s;"></div>
-        <div class="speed-line" style="top: 45%; width: 180px; animation-duration: 1.5s;"></div>
-        <div class="speed-line" style="top: 55%; width: 140px; animation-duration: 2.5s;"></div>
-        <div class="speed-line" style="top: 65%; width: 190px; animation-duration: 1.7s;"></div>
-        <div class="speed-line" style="top: 75%; width: 130px; animation-duration: 2.3s;"></div>
-        <div class="speed-line" style="top: 85%; width: 170px; animation-duration: 1.9s;"></div>
-    </div>
-
+    <!-- Video de fondo -->
+    <video autoplay loop muted>
+        <source src="./STORAGE/ff.mp4" type="video/mp4">
+    </video>
+    
     <div class="container">
         <div class="login-container">
             <div class="login-card">
@@ -747,7 +663,7 @@
                     <p>Inicia tu carrera hacia la victoria</p>
                 </div>
                 
-                <form id="login-form" class="login-form" action="#login-form">
+                <form id="login-form" class="login-form" action="./index.html">
                     <div class="form-group">
                         <input type="text" id="username" placeholder="Nombre de Usuario" required>
                         <i class="fas fa-user"></i>
@@ -761,31 +677,25 @@
                     </div>
                     
                     <button type="submit" class="login-btn">
-                        Iniciar Carrera
-                    </button>
+                        Iniciar Carrera</button>
                     
                     <div class="login-links">
                         <a href="#">¿Olvidaste tu contraseña?</a>
                         <a href="#">Registrarse</a>
                     </div>
                     
-                    <div class="separator">
-                        <div class="line"></div>
-                        <div class="text">o continúa con</div>
-                        <div class="line"></div>
+                    <!-- Semáforo de F1 -->
+                    <div class="f1-lights">
+                        <div class="light-dot"></div>
+                        <div class="light-dot"></div>
+                        <div class="light-dot"></div>
+                        <div class="light-dot"></div>
+                        <div class="light-dot"></div>
                     </div>
                     
-                    <div class="social-login">
-                        <button type="button" class="social-btn">
-                            <i class="fab fa-google"></i>
-                        </button>
-                        <button type="button" class="social-btn">
-                            <i class="fab fa-facebook-f"></i>
-                        </button>
-                        <button type="button" class="social-btn">
-                            <i class="fab fa-twitter"></i>
-                        </button>
-                    </div>
+                    
+                    
+                    
                 </form>
             </div>
         </div>
