@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Simulator - Circuitos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/F1.svg" alt="F1 Logo">
+                <h1>F1 Simulator</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li class="active"><a href="circuits.html"><i class="fas fa-road"></i> Circuitos</a></li>
+                    <li><a href="drivers.html"><i class="fas fa-user-astronaut"></i> Pilotos</a></li>
+                    <li><a href="teams.html"><i class="fas fa-users"></i> Equipos</a></li>
+                    <li><a href="cars.html"><i class="fas fa-car"></i> Vehículos</a></li>
+                    <li><a href="simulation.html"><i class="fas fa-flag-checkered"></i> Simulación</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar circuito...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-profile">
+                    <span>Admin</span>
+                    <img src="https://via.placeholder.com/40" alt="User Profile">
+                </div>
+            </header>
+
+            <div class="circuits-page">
+                <div class="page-header">
+                    <h2>Circuitos</h2>
+                    <button class="add-btn"><i class="fas fa-plus"></i> Agregar Circuito</button>
+                </div>
+
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="country-filter">País:</label>
+                        <select id="country-filter">
+                            <option value="">Todos</option>
+                            <option value="monaco">Mónaco</option>
+                            <option value="uk">Reino Unido</option>
+                            <option value="belgium">Bélgica</option>
+                            <option value="italy">Italia</option>
+                            <option value="brazil">Brasil</option>
+                            <option value="uae">Emiratos Árabes Unidos</option>
+                            <option value="japan">Japón</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="length-filter">Longitud:</label>
+                        <select id="length-filter">
+                            <option value="">Todos</option>
+                            <option value="short">Corto (< 4 km)</option>
+                            <option value="medium">Medio (4-6 km)</option>
+                            <option value="long">Largo (> 6 km)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="circuits-grid">
+                    <div class="circuit-item">
+                        <div class="circuit-image">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Monte_Carlo_Formula_1_track_map.svg" alt="Circuito de Mónaco">
+                            <div class="circuit-actions">
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="circuit-details">
+                            <h3>Circuito de Mónaco</h3>
+                            <div class="circuit-specs">
+                                <div class="spec"><i class="fas fa-map-marker-alt"></i> Mónaco</div>
+                                <div class="spec"><i class="fas fa-ruler-horizontal"></i> 3.34 km</div>
+                                <div class="spec"><i class="fas fa-redo"></i> 78 vueltas</div>
+                            </div>
+                            <p class="circuit-description">Uno de los circuitos más prestigiosos y difíciles del calendario, conocido por sus calles angostas y la falta de zonas de adelantamiento.</p>
+                            <div class="circuit-record">
+                                <strong>Récord de vuelta:</strong> 1:10.166 (Lewis Hamilton, 2019)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="circuit-item">
+                        <div class="circuit-image">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Silverstone_Circuit_2020_layout.png" alt="Silverstone">
+                            <div class="circuit-actions">
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="circuit-details">
+                            <h3>Silverstone</h3>
+                            <div class="circuit-specs">
+                                <div class="spec"><i class="fas fa-map-marker-alt"></i> Reino Unido</div>
+                                <div class="spec"><i class="fas fa-ruler-horizontal"></i> 5.89 km</div>
+                                <div class="spec"><i class="fas fa-redo"></i> 52 vueltas</div>
+                            </div>
+                            <p class="circuit-description">Uno de los circuitos más rápidos del calendario, con curvas de alta velocidad como Maggotts y Becketts.</p>
+                            <div class="circuit-record">
+                                <strong>Récord de vuelta:</strong> 1:27.097 (Max Verstappen, 2020)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="circuit-item">
+                        <div class="circuit-image">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Circuit_Spa_2018.png" alt="Circuito de Spa-Francorchamps">
+                            <div class="circuit-actions">
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="circuit-details">
+                            <h3>Circuito de Spa-Francorchamps</h3>
+                            <div class="circuit-specs">
+                                <div class="spec"><i class="fas fa-map-marker-alt"></i> Bélgica</div>
+                                <div class="spec"><i class="fas fa-ruler-horizontal"></i> 7.00 km</div>
+                                <div class="spec"><i class="fas fa-redo"></i> 44 vueltas</div>
+                            </div>
+                            <p class="circuit-description">Famoso por la curva Eau Rouge y la larga recta de Kemmel, un circuito donde la potencia del motor es clave.</p>
+                            <div class="circuit-record">
+                                <strong>Récord de vuelta:</strong> 1:46.286 (Valtteri Bottas, 2018)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="circuit-item">
+                        <div class="circuit-image">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Monza_track_map.svg" alt="Circuito de Monza">
+                            <div class="circuit-actions">
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="circuit-details">
+                            <h3>Circuito de Monza</h3>
+                            <div class="circuit-specs">
+                                <div class="spec"><i class="fas fa-map-marker-alt"></i> Italia</div>
+                                <div class="spec"><i class="fas fa-ruler-horizontal"></i> 5.79 km</div>
+                                <div class="spec"><i class="fas fa-redo"></i> 53 vueltas</div>
+                            </div>
+                            <p class="circuit-description">Conocido como 'El Templo de la Velocidad', Monza es el circuito más rápido del calendario con largas rectas y chicanes icónicas.</p>
+                            <div class="circuit-record">
+                                <strong>Récord de vuelta:</strong> 1:21.046 (Rubens Barrichello, 2004)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pagination">
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para agregar/editar circuito (simulado con CSS) -->
+    <div class="modal" id="circuit-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Agregar Circuito</h3>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form class="circuit-form">
+                    <div class="form-group">
+                        <label for="circuit-name">Nombre:</label>
+                        <input type="text" id="circuit-name" placeholder="Nombre del circuito">
+                    </div>
+                    <div class="form-group">
+                        <label for="circuit-country">País:</label>
+                        <input type="text" id="circuit-country" placeholder="País">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="circuit-length">Longitud (km):</label>
+                            <input type="number" id="circuit-length" step="0.01" placeholder="Longitud">
+                        </div>
+                        <div class="form-group">
+                            <label for="circuit-laps">Vueltas:</label>
+                            <input type="number" id="circuit-laps" placeholder="Número de vueltas">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="circuit-description">Descripción:</label>
+                        <textarea id="circuit-description" rows="3" placeholder="Descripción del circuito"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="circuit-image">Imagen:</label>
+                        <input type="file" id="circuit-image">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="cancel-btn">Cancelar</button>
+                        <button type="submit" class="save-btn">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

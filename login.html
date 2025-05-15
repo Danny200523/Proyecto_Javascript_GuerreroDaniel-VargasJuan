@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Simulator - Login Futurista</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Variables CSS */
+        :root {
+            --primary-color: #e10600;
+            --secondary-color: #00d2be;
+            --accent-color: #ff8700;
+            --dark-color: #121212;
+            --light-color: #ffffff;
+            --neon-glow: 0 0 10px rgba(225, 6, 0, 0.7), 0 0 20px rgba(225, 6, 0, 0.5), 0 0 30px rgba(225, 6, 0, 0.3);
+            --teal-glow: 0 0 10px rgba(0, 210, 190, 0.7), 0 0 20px rgba(0, 210, 190, 0.5), 0 0 30px rgba(0, 210, 190, 0.3);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-radius: 12px;
+        }
+
+        /* Reset y estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            line-height: 1.6;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        /* Contenedor principal con efecto 3D */
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Elementos decorativos geométricos */
+        .geometric-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .geo-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .geo-element:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            left: -150px;
+            animation-delay: 0s;
+        }
+
+        .geo-element:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: -100px;
+            right: -100px;
+            animation-delay: -5s;
+        }
+
+        .geo-element:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 70%;
+            left: 20%;
+            animation-delay: -2s;
+        }
+
+        .geo-element:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            right: 15%;
+            animation-delay: -7s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.05);
+            }
+        }
+
+        /* Líneas de cuadrícula */
+        .grid-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .horizontal-line, .vertical-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(225, 6, 0, 0.2), transparent);
+            opacity: 0.1;
+        }
+
+        .horizontal-line {
+            width: 100%;
+            height: 1px;
+        }
+
+        .vertical-line {
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, rgba(0, 210, 190, 0.2), transparent);
+        }
+
+        /* Tarjeta de login futurista */
+        .login-container {
+            width: 90%;
+            max-width: 480px;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .login-card {
+            width: 100%;
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            transform: translateZ(0);
+            transition: transform 0.5s ease;
+        }
+
+        .login-card:hover {
+            transform: translateZ(20px);
+        }
+
+        /* Efecto de borde brillante */
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: var(--border-radius);
+            padding: 2px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color), var(--primary-color));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            background-size: 300% 300%;
+            animation: borderAnimation 8s linear infinite;
+        }
+
+        @keyframes borderAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Efecto de líneas de velocidad */
+        .speed-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .speed-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            animation: speedLine 2s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes speedLine {
+            0% {
+                transform: translateX(-100%) translateY(0);
+            }
+            100% {
+                transform: translateX(100%) translateY(20px);
+            }
+        }
+
+        /* Logo y título */
+        .login-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .login-header .logo-container {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+        }
+
+        .login-header .logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px rgba(225, 6, 0, 0.7));
+            animation: pulseLogo 2s infinite alternate;
+        }
+
+        @keyframes pulseLogo {
+            0% {
+                filter: drop-shadow(0 0 5px rgba(225, 6, 0, 0.5));
+                transform: scale(1);
+            }
+            100% {
+                filter: drop-shadow(0 0 12px rgba(225, 6, 0, 0.8));
+                transform: scale(1.05);
+            }
+        }
+
+        .login-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        .login-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Formulario futurista */
+        .login-form {
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px 15px 15px 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            border-radius: var(--border-radius);
+            color: var(--light-color);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 16px;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--secondary-color);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group i {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            color: var(--secondary-color);
+            font-size: 20px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus ~ i {
+            color: var(--light-color);
+            text-shadow: var(--teal-glow);
+        }
+
+        .form-group .input-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            transition: var(--transition);
+        }
+
+        .form-group input:focus ~ .input-bar,
+        .form-group input:not(:placeholder-shown) ~ .input-bar {
+            width: 100%;
+        }
+
+        /* Botón de inicio de sesión futurista */
+        .login-btn {
+            position: relative;
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background: linear-gradient(135deg, var(--primary-color), #ff3300);
+            color: var(--light-color);
+            border: none;
+            border-radius: var(--border-radius);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(225, 6, 0, 0.3);
+        }
+
+        .login-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: var(--transition);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(225, 6, 0, 0.5);
+        }
+
+        .login-btn:hover::before {
+            left: 100%;
+            transition: 0.7s;
+        }
+
+        /* Efecto de pulso en el botón */
+        .login-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--border-radius);
+            background: linear-gradient(135deg, var(--primary-color), #ff3300);
+            opacity: 0;
+            z-index: -1;
+            animation: buttonPulse 2s infinite;
+        }
+
+        @keyframes buttonPulse {
+            0% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0;
+                transform: scale(1.3);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.5);
+            }
+        }
+
+        /* Enlaces adicionales */
+        .login-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            font-size: 14px;
+        }
+
+        .login-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .login-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            transition: var(--transition);
+        }
+
+        .login-links a:hover {
+            color: var(--light-color);
+        }
+
+        .login-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Separador */
+        .separator {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .separator .line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+
+        .separator .text {
+            padding: 0 15px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Botones de redes sociales */
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 20px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            color: var(--light-color);
+        }
+
+        .social-btn:hover::before {
+            opacity: 1;
+        }
+
+        /* Carro de F1 futurista */
+        .f1-car {
+            position: absolute;
+            top: 50%;
+            left: -200px; /* Inicialmente fuera de la pantalla */
+            width: 200px;
+            height: 70px;
+            transform: translateY(-50%);
+            z-index: 10;
+            transition: left 0s;
+            pointer-events: none;
+        }
+
+        .car-body {
+            position: absolute;
+            width: 140px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--primary-color), #ff3300);
+            border-radius: 10px 30px 5px 5px;
+            top: 15px;
+            left: 30px;
+            box-shadow: 0 5px 15px rgba(225, 6, 0, 0.5);
+        }
+
+        .car-cockpit {
+            position: absolute;
+            width: 40px;
+            height: 15px;
+            background-color: #000;
+            border-radius: 5px;
+            top: 8px;
+            left: 80px;
+        }
+
+        .car-front-wing {
+            position: absolute;
+            width: 40px;
+            height: 10px;
+            background: linear-gradient(90deg, #ddd, #fff);
+            border-radius: 5px;
+            top: 25px;
+            left: 150px;
+        }
+
+        .car-rear-wing {
+            position: absolute;
+            width: 30px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--primary-color), #ff3300);
+            top: 5px;
+            left: 20px;
+        }
+
+        .car-wheel {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #000;
+            border-radius: 50%;
+            border: 5px solid #333;
+        }
+
+        .car-wheel.front {
+            top: 30px;
+            left: 130px;
+        }
+
+        .car-wheel.rear {
+            top: 30px;
+            left: 40px;
+        }
+
+        /* Efecto de neón para el carro */
+        .car-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            filter: blur(15px);
+            opacity: 0.5;
+            background: var(--primary-color);
+            border-radius: 50%;
+            transform: scale(0.7);
+        }
+
+        /* Animación del carro cuando se activa */
+        #login-form:target ~ .f1-car {
+            left: calc(100% + 200px); /* Mueve el carro fuera de la pantalla por la derecha */
+            transition: left 1.5s cubic-bezier(0.1, 0.7, 0.1, 1);
+        }
+
+        /* Efecto de estela para el carro */
+        .car-trail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        #login-form:target ~ .f1-car .car-trail {
+            opacity: 1;
+        }
+
+        .trail-particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary-color);
+            opacity: 0;
+        }
+
+        #login-form:target ~ .f1-car .trail-particle {
+            animation: trailFade 1s forwards;
+        }
+
+        @keyframes trailFade {
+            0% {
+                opacity: 0.7;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.5) translateX(-100px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .login-card {
+                padding: 30px;
+            }
+
+            .login-header h1 {
+                font-size: 28px;
+            }
+
+            .f1-car {
+                transform: translateY(-50%) scale(0.8);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                padding: 25px 20px;
+            }
+
+            .login-header h1 {
+                font-size: 24px;
+            }
+
+            .login-header .logo-container {
+                width: 60px;
+                height: 60px;
+            }
+
+            .f1-car {
+                transform: translateY(-50%) scale(0.6);
+            }
+
+            .social-login {
+                gap: 15px;
+            }
+
+            .social-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Elementos geométricos decorativos -->
+    <div class="geometric-elements">
+        <div class="geo-element"></div>
+        <div class="geo-element"></div>
+        <div class="geo-element"></div>
+        <div class="geo-element"></div>
+    </div>
+
+    <!-- Líneas de cuadrícula -->
+    <div class="grid-lines">
+        <div class="horizontal-line" style="top: 10%;"></div>
+        <div class="horizontal-line" style="top: 30%;"></div>
+        <div class="horizontal-line" style="top: 50%;"></div>
+        <div class="horizontal-line" style="top: 70%;"></div>
+        <div class="horizontal-line" style="top: 90%;"></div>
+        
+        <div class="vertical-line" style="left: 20%;"></div>
+        <div class="vertical-line" style="left: 40%;"></div>
+        <div class="vertical-line" style="left: 60%;"></div>
+        <div class="vertical-line" style="left: 80%;"></div>
+    </div>
+
+    <!-- Líneas de velocidad -->
+    <div class="speed-lines">
+        <div class="speed-line" style="top: 15%; width: 150px; animation-duration: 2s;"></div>
+        <div class="speed-line" style="top: 25%; width: 200px; animation-duration: 1.8s;"></div>
+        <div class="speed-line" style="top: 35%; width: 120px; animation-duration: 2.2s;"></div>
+        <div class="speed-line" style="top: 45%; width: 180px; animation-duration: 1.5s;"></div>
+        <div class="speed-line" style="top: 55%; width: 140px; animation-duration: 2.5s;"></div>
+        <div class="speed-line" style="top: 65%; width: 190px; animation-duration: 1.7s;"></div>
+        <div class="speed-line" style="top: 75%; width: 130px; animation-duration: 2.3s;"></div>
+        <div class="speed-line" style="top: 85%; width: 170px; animation-duration: 1.9s;"></div>
+    </div>
+
+    <div class="container">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <div class="logo-container">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/F1.svg" alt="F1 Logo" class="logo">
+                    </div>
+                    <h1>F1 Simulator</h1>
+                    <p>Inicia tu carrera hacia la victoria</p>
+                </div>
+                
+                <form id="login-form" class="login-form" action="#login-form">
+                    <div class="form-group">
+                        <input type="text" id="username" placeholder="Nombre de Usuario" required>
+                        <i class="fas fa-user"></i>
+                        <div class="input-bar"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="password" id="password" placeholder="Contraseña" required>
+                        <i class="fas fa-lock"></i>
+                        <div class="input-bar"></div>
+                    </div>
+                    
+                    <button type="submit" class="login-btn">
+                        Iniciar Carrera
+                    </button>
+                    
+                    <div class="login-links">
+                        <a href="#">¿Olvidaste tu contraseña?</a>
+                        <a href="#">Registrarse</a>
+                    </div>
+                    
+                    <div class="separator">
+                        <div class="line"></div>
+                        <div class="text">o continúa con</div>
+                        <div class="line"></div>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button type="button" class="social-btn">
+                            <i class="fab fa-google"></i>
+                        </button>
+                        <button type="button" class="social-btn">
+                            <i class="fab fa-facebook-f"></i>
+                        </button>
+                        <button type="button" class="social-btn">
+                            <i class="fab fa-twitter"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Carro de F1 futurista -->
+    <div class="f1-car">
+        <div class="car-glow"></div>
+        <div class="car-body"></div>
+        <div class="car-cockpit"></div>
+        <div class="car-front-wing"></div>
+        <div class="car-rear-wing"></div>
+        <div class="car-wheel front"></div>
+        <div class="car-wheel rear"></div>
+        
+        <!-- Estela del carro -->
+        <div class="car-trail">
+            <div class="trail-particle" style="top: 20px; left: 30px;"></div>
+            <div class="trail-particle" style="top: 30px; left: 25px;"></div>
+            <div class="trail-particle" style="top: 40px; left: 35px;"></div>
+            <div class="trail-particle" style="top: 25px; left: 20px;"></div>
+            <div class="trail-particle" style="top: 35px; left: 15px;"></div>
+            <div class="trail-particle" style="top: 45px; left: 25px;"></div>
+        </div>
+    </div>
+</body>
+</html>
