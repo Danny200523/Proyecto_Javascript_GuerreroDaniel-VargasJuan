@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+}
+
+body {
+  background-color: #000000;
+  color: white;
+  padding: 0;
+  background-image: url("../STORAGE/img-dash/track-bg.svg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100%;
+  min-height: 100vh;
+}
+
+/* Update header spacing and alignment */
+header {
+  display: flex;
+  align-items: center;
+  padding: 2rem 2rem 1rem;
+}
+
+.logo {
+  height: 40px;
+  margin-left: 2rem;
+}
+
+nav {
+  display: flex;
+  margin-left: 4rem;
+}
+
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+main {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dashboard-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.circuitos,
+.pilotos-section,
+.momentos {
+  background: #000000;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid white;
+}
+
+.circuitos {
+  width: 35%;
+}
+
+.pilotos-section {
+  width: 65%;
+}
+
+.circuito {
+  background-color: #000000;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  position: relative;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+.track-layout {
+  width: 100px;
+  margin-right: 1rem;
+}
+
+.circuit-info {
+  font-size: 0.8rem;
+  line-height: 1.2;
+  margin-top: 0.5rem;
+}
+
+.circuit-info p {
+  margin: 0;
+}
+
+/* Make pilots in circuit sections larger */
+.piloto-img {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  height: 80px;
+}
+
+/* Make middle pilot larger */
+.pilotos-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.piloto {
+  flex: 1;
+}
+
+.piloto:nth-child(2) {
+  flex: 1.2;
+  transform: scale(1.15);
+  z-index: 2;
+}
+
+.piloto-card {
+  background-color: #000000;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #444;
+}
+
+.piloto-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.piloto-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.nombre-small {
+  font-size: 0.8rem;
+}
+
+.apellido {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.momentos {
+  margin-top: 0;
+}
+
+.galeria {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.galeria img {
+  height: 120px;
+  border-radius: 10px;
+  width: 32%;
+  object-fit: cover;
+}
+
+/* Specific styling for Monaco circuit */
+.monaco {
+  background-color: #000000;
+}
+
+/* Specific styling for Silverstone circuit */
+.silverstone {
+  background-color: #000000;
+}
