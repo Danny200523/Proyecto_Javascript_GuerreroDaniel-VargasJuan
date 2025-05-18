@@ -11,9 +11,6 @@ body {
   background-color: #000000;
   color: white;
   padding: 0;
-  background-image: url("../STORAGE/img-dash/track-bg.svg");
-  background-repeat: no-repeat;
-  background-position: bottom;
   background-size: 100%;
   min-height: 100vh;
 }
@@ -66,11 +63,12 @@ main {
 }
 
 .circuitos {
-  width: 35%;
+  width: 20%;
+  height: 100%;
 }
 
 .pilotos-section {
-  width: 65%;
+  width: 80%;
 }
 
 .circuito {
@@ -87,12 +85,12 @@ h2 {
 }
 
 .track-layout {
-  width: 100px;
+  width: 7vw;
   margin-right: 1rem;
 }
 
 .circuit-info {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   line-height: 1.2;
   margin-top: 0.5rem;
 }
@@ -104,9 +102,9 @@ h2 {
 /* Make pilots in circuit sections larger */
 .piloto-img {
   position: absolute;
-  right: 1rem;
-  bottom: 1rem;
-  height: 80px;
+  right: 1.5rem;
+  bottom: 0rem;
+  height: 7.5vw;
 }
 
 /* Make middle pilot larger */
@@ -114,11 +112,11 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: 3rem;
 }
 
 .piloto {
-  flex: 1;
+  flex: 0.9;
 }
 
 .piloto:nth-child(2) {
