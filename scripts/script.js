@@ -1,22 +1,22 @@
-const url = `https://6827c5f36b7628c5291152da.mockapi.io/f1`;
+const url = `https://67f91aad094de2fe6ea07a32.mockapi.io/people/project/F1`;
 const myHeader = new Headers({
   'Content-Type': 'application/json'
 });
+const editpit = document.getElementById('pdest');
 
-const getEquipos = async () => {
-  const response = await fetch(`${url}/equipos`);
-  const data = await response.json();
-  return data;
-};
+function renderPit(){
+  fetch(url)
+  .then(Response=>Response.json())
+  .then(data=>{
+    console.log(data)
+    editpit.innerHTML = `
+              <img src="${data[0].pilotos[6].photo}" alt="Oscar Piastri" />
+              <div class="piloto-info">
+                <span class="nombre-small">${data[0].pilotos[6].nombre}</span>
+              </div>
+              `;
+    
+  })
+}
 
-const getPilotos = async () => {
-    const response = await fetch(`${url}/pilotos`);
-    const data = await response.json();
-    return data;
-  };
-
-const getEscuderias = async () => {
-    const response = await fetch(`${url}/escuderias`);
-    const data = await response.json();
-    return data;
-};  
+document.addEventListener('DOMContentLoaded',renderPit)
