@@ -794,5 +794,186 @@
         },
         "imagen": "https://www.formula1.com/content/dam/fom-website/teams/2025/williams.jpg"
       }
+  ],
+  "Circuitos":[
+    {
+      "nombre": "Circuito de Mónaco",
+      "pais": "Mónaco",
+      "longitud_km": 3.34,
+      "vueltas": 78,
+      "descripcion": "Uno de los circuitos más prestigiosos y difíciles del calendario, conocido por sus calles angostas y la falta de zonas de adelantamiento.",
+      "record_vuelta": {
+        "tiempo": "1:10.166",
+        "piloto": "Lewis Hamilton",
+        "año": 2019
+      },
+      "ganadores": [
+        { "temporada": 2021, "piloto": 1 },
+        { "temporada": 2022, "piloto": 5 },
+        { "temporada": 2023, "piloto": 7 }
+      ],
+      "imagen": "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Monaco_Circuit"
+    },
+    {
+      "nombre": "Silverstone",
+      "pais": "Reino Unido",
+      "longitud_km": 5.89,
+      "vueltas": 52,
+      "descripcion": "Circuito de alta velocidad con curvas históricas como Maggotts y Becketts. Cuna del primer GP de F1.",
+      "record_vuelta": {
+        "tiempo": "1:27.097",
+        "piloto": "Max Verstappen",
+        "año": 2020
+      },
+      "ganadores": [
+        { "temporada": 2021, "piloto": 3 },
+        { "temporada": 2022, "piloto": 1 },
+        { "temporada": 2023, "piloto": 19 }
+      ],
+      "imagen": "https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/f_auto/q_auto/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Great_Britain_Circuit"
+    },
+    {
+      "nombre": "Suzuka",
+      "pais": "Japón",
+      "longitud_km": 5.81,
+      "vueltas": 53,
+      "descripcion": "Famoso por su diseño en forma de ocho y sus exigentes curvas rápidas como la 130R.",
+      "record_vuelta": {
+        "tiempo": "1:30.983",
+        "piloto": "Lewis Hamilton",
+        "año": 2019
+      },
+      "ganadores": [
+        { "temporada": 2021, "piloto": 2 },
+        { "temporada": 2022, "piloto": 1 },
+        { "temporada": 2023, "piloto": 17 }
+      ],
+      "imagen": "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Japan_Circuit"
+    },
+    {
+      "nombre": "Monza",
+      "pais": "Italia",
+      "longitud_km": 5.79,
+      "vueltas": 53,
+      "descripcion": "El 'Templo de la Velocidad', uno de los circuitos más rápidos del mundo.",
+      "record_vuelta": {
+        "tiempo": "1:21.046",
+        "piloto": "Rubens Barrichello",
+        "año": 2004
+      },
+      "ganadores": [
+        { "temporada": 2021, "piloto": 7 },
+        { "temporada": 2022, "piloto": 5 },
+        { "temporada": 2023, "piloto": 1 }
+      ],
+      "imagen": "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Italy_Circuit"
+    },
+    {
+      "nombre": "Interlagos",
+      "pais": "Brasil",
+      "longitud_km": 4.31,
+      "vueltas": 71,
+      "descripcion": "Ubicado en São Paulo, conocido por sus carreras emocionantes y clima impredecible.",
+      "record_vuelta": {
+        "tiempo": "1:10.540",
+        "piloto": "Valtteri Bottas",
+        "año": 2018
+      },
+      "ganadores": [
+        { "temporada": 2021, "piloto": 9 },
+        { "temporada": 2022, "piloto": 12 },
+        { "temporada": 2023, "piloto": 13 }
+      ],
+      "imagen": "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Brazil_Circuit"
+    },
+    {
+      "nombre": "Spa-Francorchamps",
+      "pais": "Bélgica",
+      "longitud_km": 7.0,
+      "vueltas": 44,
+      "descripcion": "Uno de los circuitos más largos y desafiantes, famoso por Eau Rouge y Raidillon.",
+      "record_vuelta": {
+        "tiempo": "1:46.286",
+        "piloto": "Valtteri Bottas",
+        "año": 2018
+      },
+      "ganadores": [
+        { "temporada": 2021, "piloto": 1 },
+        { "temporada": 2022, "piloto": 3 },
+        { "temporada": 2023, "piloto": 19 }
+      ],
+      "imagen": "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Belgium_Circuit"
+    },
+    {
+      "nombre": "Marina Bay",
+      "pais": "Singapur",
+      "longitud_km": 5.07,
+      "vueltas": 61,
+      "descripcion": "Primera carrera nocturna de F1, circuito urbano exigente por sus curvas cerradas.",
+      "record_vuelta": {
+        "tiempo": "1:41.905",
+        "piloto": "Kevin Magnussen",
+        "año": 2018
+      },
+      "ganadores": [
+        { "temporada": 2021, "piloto": 5 },
+        { "temporada": 2022, "piloto": 15 },
+        { "temporada": 2023, "piloto": 3 }
+      ],
+      "imagen": "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Singapore_Circuit"
+    },
+    {
+      "nombre": "Yas Marina",
+      "pais": "Emiratos Árabes Unidos",
+      "longitud_km": 5.28,
+      "vueltas": 58,
+      "descripcion": "Circuito moderno con un tramo que pasa bajo un hotel y carreras al atardecer.",
+      "record_vuelta": {
+        "tiempo": "1:26.103",
+        "piloto": "Max Verstappen",
+        "año": 2020
+      },
+      "ganadores": [
+        { "temporada": 2021, "piloto": 1 },
+        { "temporada": 2022, "piloto": 7 },
+        { "temporada": 2023, "piloto": 9 }
+      ],
+      "imagen": "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Abu_Dhabi_Circuit"
+    },
+    {
+      "nombre": "Zandvoort",
+      "pais": "Países Bajos",
+      "longitud_km": 4.26,
+      "vueltas": 72,
+      "descripcion": "Circuito costero con peraltes y curvas rápidas. Regresó a la F1 en 2021.",
+      "record_vuelta": {
+        "tiempo": "1:11.097",
+        "piloto": "Lewis Hamilton",
+        "año": 2021
+      },
+      "ganadores": [
+        { "temporada": 2021, "piloto": 1 },
+        { "temporada": 2022, "piloto": 1 },
+        { "temporada": 2023, "piloto": 1 }
+      ],
+      "imagen": "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Netherlands_Circuit"
+    },
+    {
+      "nombre": "Miami",
+      "pais": "Estados Unidos",
+      "longitud_km": 5.41,
+      "vueltas": 57,
+      "descripcion": "Ubicado alrededor del Hard Rock Stadium, es un trazado callejero moderno y técnico.",
+      "record_vuelta": {
+        "tiempo": "1:29.708",
+        "piloto": "Max Verstappen",
+        "año": 2023
+      },
+      "ganadores": [
+        { "temporada": 2022, "piloto": 1 },
+        { "temporada": 2023, "piloto": 11 }
+      ],
+      "imagen": "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Miami_Circuit"
+    }
   ]
 }

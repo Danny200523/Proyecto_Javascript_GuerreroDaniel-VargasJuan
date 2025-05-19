@@ -7,135 +7,182 @@
   font-family: "Orbitron", sans-serif;
 }
 
-body {
-  background-color: #000000;
-  color: white;
-  padding: 0;
-  background-size: 100%;
-  min-height: 100vh;
+:root {
+  --border-color: #444;
+  --accent-color: #e10600; /* F1 red */
+  --bg-color: #000000;
+  --text-color: #ffffff;
 }
 
-/* Update header spacing and alignment */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Header and Navigation */
 header {
   display: flex;
   align-items: center;
-  padding: 2rem 2rem 1rem;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-wrap: wrap;
 }
 
 .logo {
   height: 40px;
-  margin-left: 2rem;
+  margin: 0 1rem;
 }
 
 nav {
   display: flex;
-  margin-left: 4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
 }
 
 nav a {
-  margin: 0 1rem;
+  padding: 0.5rem;
   text-decoration: none;
-  color: white;
-  font-size: 1.2rem;
+  color: var(--text-color);
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+  white-space: nowrap;
 }
 
+nav a:hover {
+  color: var(--accent-color);
+}
+
+/* Main Content */
 main {
-  padding: 1rem 2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .dashboard-container {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
+  flex-direction: column;
+  width: 100%;
 }
 
 .circuitos,
 .pilotos-section,
 .momentos {
-  background: #000000;
-  padding: 1rem;
+  background: var(--bg-color);
+  padding: 1.5rem;
   border-radius: 10px;
-  border: 2px solid white;
+  border: 2px solid var(--border-color);
+}
+
+.circuitos:hover,
+.pilotos-section:hover,
+.momentos:hover {
+  border-color: var(--border-color);
+  box-shadow: none;
 }
 
 .circuitos {
-  width: 20%;
-  height: 100%;
+  width: 100%;
 }
 
 .pilotos-section {
-  width: 80%;
+  width: 100%;
 }
 
+/* Circuit Styling */
 .circuito {
-  background-color: #000000;
-  border: 1px solid #444;
+  background-color: rgba(20, 20, 20, 0.6);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 1rem;
   margin: 1rem 0;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.circuito:hover {
+  transform: none;
+  border-color: var(--border-color);
 }
 
 h2 {
   margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
 .track-layout {
-  width: 7vw;
+  width: 80px;
   margin-right: 1rem;
 }
 
 .circuit-info {
-  font-size: 0.7rem;
-  line-height: 1.2;
+  font-size: 0.8rem;
+  line-height: 1.4;
   margin-top: 0.5rem;
 }
 
 .circuit-info p {
-  margin: 0;
+  margin: 0.2rem 0;
 }
 
-/* Make pilots in circuit sections larger */
-.piloto-img {
-  position: absolute;
-  right: 1.5rem;
-  bottom: 0rem;
-  height: 7.5vw;
-}
-
-/* Make middle pilot larger */
+/* Pilots Section */
 .pilotos-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  justify-items: center;
+  width: 100%;
 }
 
 .piloto {
-  flex: 0.9;
-}
-
-.piloto:nth-child(2) {
-  flex: 1.2;
-  transform: scale(1.15);
-  z-index: 2;
+  width: 100%;
+  max-width: 280px;
 }
 
 .piloto-card {
-  background-color: #000000;
+  background-color: rgba(20, 20, 20, 0.6);
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-  border: 1px solid #444;
+  border: 1px solid var(--border-color);
+  aspect-ratio: 3/4;
+}
+
+.piloto-card:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--border-color);
 }
 
 .piloto-card img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
 }
 
@@ -145,13 +192,14 @@ h2 {
   left: 0;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  padding: 0.5rem;
+  padding: 0.8rem;
   display: flex;
   flex-direction: column;
 }
 
 .nombre-small {
   font-size: 0.8rem;
+  opacity: 0.8;
 }
 
 .apellido {
@@ -159,30 +207,366 @@ h2 {
   font-weight: bold;
 }
 
+/* Gallery Section */
 .momentos {
-  margin-top: 0;
+  margin-top: 1rem;
+  width: 100%;
 }
 
 .galeria {
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 1.5rem;
 }
 
-.galeria img {
-  height: 120px;
+/* Video responsiveness */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
   border-radius: 10px;
-  width: 32%;
-  object-fit: cover;
+  border: 1px solid var(--border-color);
 }
 
-/* Specific styling for Monaco circuit */
-.monaco {
-  background-color: #000000;
+.video-container:hover {
+  transform: none;
+  border-color: var(--border-color);
 }
 
-/* Specific styling for Silverstone circuit */
-.silverstone {
-  background-color: #000000;
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Circuit-specific styling */
+.monaco, .silverstone {
+  position: relative;
+}
+
+.monaco::after, .silverstone::after {
+  content: none;
+}
+
+/* Small devices (phones, 576px and up) */
+@media screen and (min-width: 576px) {
+  nav {
+    justify-content: flex-end;
+  }
+  
+  .pilotos-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .circuito {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+  header {
+    padding: 1.5rem;
+    justify-content: flex-start;
+  }
+  
+  .logo {
+    height: 35px;
+  }
+  
+  nav {
+    margin-left: auto;
+    gap: 1rem;
+  }
+  
+  nav a {
+    font-size: 1rem;
+  }
+  
+  .dashboard-container {
+    flex-direction: row;
+  }
+  
+  .circuitos {
+    width: 40%;
+  }
+  
+  .pilotos-section {
+    width: 60%;
+  }
+  
+  .track-layout {
+    width: 100px;
+  }
+  
+  .circuit-info {
+    font-size: 0.9rem;
+  }
+  
+  .galeria {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+  .pilotos-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .piloto-card {
+    height: 100%;
+  }
+  
+  .piloto:nth-child(2) .piloto-card {
+    transform: none;
+  }
+  
+  .circuito {
+    padding: 1.5rem;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
+  header {
+    padding: 2rem;
+  }
+  
+  .logo {
+    height: 40px;
+    margin-left: 2rem;
+  }
+  
+  nav {
+    margin-left: 4rem;
+  }
+  
+  .dashboard-container {
+    gap: 2rem;
+  }
+  
+  .circuitos {
+    width: 30%;
+  }
+  
+  .pilotos-section {
+    width: 70%;
+  }
+  
+  .track-layout {
+    width: 120px;
+  }
+  
+  .circuit-info {
+    font-size: 1rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .nombre-small {
+    font-size: 1rem;
+  }
+  
+  .apellido {
+    font-size: 1.6rem;
+  }
+}
+
+/* XXL devices (1400px and up) */
+@media screen and (min-width: 1400px) {
+  main {
+    max-width: 1800px;
+  }
+  
+  .track-layout {
+    width: 150px;
+  }
+  
+  .circuit-info {
+    font-size: 1rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .nombre-small {
+    font-size: 1rem;
+  }
+  
+  .apellido {
+    font-size: 1.6rem;
+  }
+  
+  .piloto:nth-child(2) .piloto-card {
+    transform: none;
+  }
+}
+
+/* 4K and Ultra-Wide Resolution (2560px and up) */
+@media screen and (min-width: 2560px) {
+  body {
+    font-size: 18px;
+  }
+  
+  main {
+    max-width: 2400px;
+    padding: 2rem;
+  }
+  
+  header {
+    padding: 3rem;
+  }
+  
+  .logo {
+    height: 60px;
+  }
+  
+  nav a {
+    font-size: 1.4rem;
+    margin: 0 1.5rem;
+  }
+  
+  .dashboard-container {
+    gap: 2rem;
+  }
+  
+  .circuitos, .pilotos-section, .momentos {
+    padding: 2rem;
+    border-width: 3px;
+    border-radius: 15px;
+  }
+  
+  .circuito {
+    padding: 2rem;
+    margin: 2rem 0;
+    border-width: 2px;
+    border-radius: 12px;
+  }
+  
+  .track-layout {
+    width: 220px;
+    margin-right: 2rem;
+  }
+  
+  .circuit-info {
+    font-size: 1.3rem;
+    line-height: 1.4;
+  }
+  
+  .circuit-info p {
+    margin: 0.5rem 0;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .piloto {
+    max-width: 450px;
+  }
+  
+  .nombre-small {
+    font-size: 1.4rem;
+  }
+  
+  .apellido {
+    font-size: 2.2rem;
+  }
+  
+  .piloto-info {
+    padding: 1rem;
+  }
+}
+
+/* Ultra 4K Resolution (3840px and up) */
+@media screen and (min-width: 3840px) {
+  body {
+    font-size: 24px;
+  }
+  
+  main {
+    max-width: 3400px;
+    padding: 3rem;
+  }
+  
+  header {
+    padding: 4rem;
+  }
+  
+  .logo {
+    height: 80px;
+  }
+  
+  nav a {
+    font-size: 1.8rem;
+    margin: 0 2rem;
+  }
+  
+  .dashboard-container {
+    gap: 3rem;
+  }
+  
+  .circuitos, .pilotos-section, .momentos {
+    padding: 3rem;
+    border-width: 4px;
+    border-radius: 20px;
+  }
+  
+  .circuito {
+    padding: 3rem;
+    margin: 3rem 0;
+    border-width: 3px;
+    border-radius: 16px;
+  }
+  
+  .track-layout {
+    width: 300px;
+    margin-right: 3rem;
+  }
+  
+  .circuit-info {
+    font-size: 1.6rem;
+    line-height: 1.6;
+  }
+  
+  .circuit-info p {
+    margin: 0.8rem 0;
+  }
+  
+  h2 {
+    font-size: 3.2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .piloto {
+    max-width: 650px;
+  }
+  
+  .nombre-small {
+    font-size: 1.8rem;
+  }
+  
+  .apellido {
+    font-size: 2.8rem;
+  }
+  
+  .piloto-info {
+    padding: 1.5rem;
+  }
 }
