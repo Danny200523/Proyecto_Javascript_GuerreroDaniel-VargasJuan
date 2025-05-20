@@ -8,8 +8,8 @@ const editpit3 = document.getElementById('p3');
 const editcircu = document.getElementById('c1')
 const editcircu2 = document.getElementById('c2')
 
-function renderPit(){
-  fetch(url)
+async function renderPit(){
+  await fetch(url)
   .then(Response=>Response.json())
   .then(data=>{
     console.log(data)
@@ -17,7 +17,7 @@ function renderPit(){
               <img src="${data[0].pilotos[6].photo}" alt="Oscar Piastri" />
               <div class="piloto-info">
                 <span class="nombre-small">${data[0].pilotos[6].nombre.substring(0,5)}</span>
-                <span class="apellido ">${data[0].pilotos[6].nombre.substring(5,15)}</span>
+                <span class="apellido">${data[0].pilotos[6].nombre.substring(5,15)}</span>
               </div>
               `;
     editpit2.innerHTML = `

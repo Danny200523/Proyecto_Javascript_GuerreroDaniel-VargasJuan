@@ -795,9 +795,10 @@
         "imagen": "https://www.formula1.com/content/dam/fom-website/teams/2025/williams.jpg"
       }
   ],
-  "Circuitos":[
+  "circuitos":[
     {
       "nombre": "Circuito de Mónaco",
+      "photo":"https://i.ibb.co/7N4wLHGD/guia-circuito-monaco-formula-1.jpg",
       "pais": "Mónaco",
       "longitud_km": 3.34,
       "vueltas": 78,
@@ -816,6 +817,7 @@
     },
     {
       "nombre": "Silverstone",
+      "photo":"https://i.ibb.co/cSmf9vZb/silverstone.jpg",
       "pais": "Reino Unido",
       "longitud_km": 5.89,
       "vueltas": 52,
@@ -834,6 +836,7 @@
     },
     {
       "nombre": "Suzuka",
+      "photo":"https://i.ibb.co/h17rhNYB/susukaff.jpg",
       "pais": "Japón",
       "longitud_km": 5.81,
       "vueltas": 53,
@@ -852,6 +855,7 @@
     },
     {
       "nombre": "Monza",
+      "photo":"https://i.ibb.co/0WHxCDn/monza.jpg",
       "pais": "Italia",
       "longitud_km": 5.79,
       "vueltas": 53,
@@ -870,6 +874,7 @@
     },
     {
       "nombre": "Interlagos",
+      "photo":"https://i.ibb.co/KjbVy4T6/circuito-de-interlagos.jpg",
       "pais": "Brasil",
       "longitud_km": 4.31,
       "vueltas": 71,
@@ -888,6 +893,7 @@
     },
     {
       "nombre": "Spa-Francorchamps",
+      "photo":"https://i.ibb.co/sp0vTXWP/spa-francorchamps-new-grandsta.jpg",
       "pais": "Bélgica",
       "longitud_km": 7.0,
       "vueltas": 44,
@@ -906,6 +912,7 @@
     },
     {
       "nombre": "Marina Bay",
+      "photo":"https://i.ibb.co/R475FGXs/marinabay.webp",
       "pais": "Singapur",
       "longitud_km": 5.07,
       "vueltas": 61,
@@ -924,6 +931,7 @@
     },
     {
       "nombre": "Yas Marina",
+      "photo":"https://i.ibb.co/spqJ28pt/yasmarina.jpg",
       "pais": "Emiratos Árabes Unidos",
       "longitud_km": 5.28,
       "vueltas": 58,
@@ -942,6 +950,7 @@
     },
     {
       "nombre": "Zandvoort",
+      "photo":"https://i.ibb.co/jXF8M8w/Circuito-de-Zandvoort-Holanda-1024x684.jpg",
       "pais": "Países Bajos",
       "longitud_km": 4.26,
       "vueltas": 72,
@@ -960,6 +969,7 @@
     },
     {
       "nombre": "Miami",
+      "photo":"https://i.ibb.co/NwZrfYY/miami.png",
       "pais": "Estados Unidos",
       "longitud_km": 5.41,
       "vueltas": 57,
