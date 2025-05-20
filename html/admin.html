@@ -3,167 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/admin.css">
     <title>Admin F1 - Panel de Control</title>
     <style>
         /* Estilos generales */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
 
-        body {
-            background-color: #0a0a0a;
-            color: #ffffff;
-            overflow-y: auto;
-            height: 100vh;
-        }
+body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    overflow-y: auto;
+    height: 100vh;
+}
 
-        /* Header y navegación */
-        header {
-            background-color: #000000;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #333;
-        }
+/* Header y navegación */
+header {
+    background-color: #000000;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #333;
+}
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-        .logo img {
-            height: 40px;
-        }
+.logo img {
+    height: 40px;
+}
 
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin-top: 15px;
-        }
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-top: 15px;
+}
 
-        nav ul li {
-            margin: 0 15px;
-        }
+nav ul li {
+    margin: 0 15px;
+}
 
-        nav ul li a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-        }
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
 
-        nav ul li a:hover {
-            color: #e10600;
-        }
+nav ul li a:hover {
+    color: #e10600;
+}
 
-        /* Secciones CRUD */
-        .section {
-            padding: 30px 0;
-            border-bottom: 1px solid #333;
-        }
+/* Secciones CRUD */
+.section {
+    padding: 30px 0;
+    border-bottom: 1px solid #333;
+}
 
-        .section-title {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #e10600;
-            text-transform: uppercase;
-        }
+.section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #e10600;
+    text-transform: uppercase;
+}
 
-        /* Tabla de datos */
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            background-color: #1a1a1a;
-        }
+/* Tabla de datos */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #1a1a1a;
+}
 
-        .data-table th, .data-table td {
-            padding: 10px 15px;
-            text-align: left;
-            border-bottom: 1px solid #333;
-        }
+.data-table th, .data-table td {
+    padding: 10px 15px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
 
-        .data-table th {
-            background-color: #222;
-            color: #e10600;
-            font-weight: bold;
-        }
+.data-table th {
+    background-color: #222;
+    color: #e10600;
+    font-weight: bold;
+}
 
-        .data-table tr:hover {
-            background-color: #252525;
-        }
+.data-table tr:hover {
+    background-color: #252525;
+}
 
-        /* Botones CRUD */
-        .crud-buttons {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
+/* Botones CRUD */
+.crud-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
 
-        .btn {
-            padding: 8px 15px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+}
 
-        .btn-create {
-            background-color: #00a86b;
-            color: white;
-        }
+.btn-create {
+    background-color: #00a86b;
+    color: white;
+}
 
-        .btn-read {
-            background-color: #0077cc;
-            color: white;
-        }
+.btn-read {
+    background-color: #0077cc;
+    color: white;
+}
 
-        .btn-update {
-            background-color: #ffa500;
-            color: white;
-        }
+.btn-update {
+    background-color: #ffa500;
+    color: white;
+}
 
-        .btn-delete {
-            background-color: #e10600;
-            color: white;
-        }
+.btn-delete {
+    background-color: #e10600;
+    color: white;
+}
 
-        /* Acciones en tabla */
-        .action-btn {
-            padding: 5px 10px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            margin-right: 5px;
-            font-size: 12px;
-        }
+/* Acciones en tabla */
+.action-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 12px;
+}
 
-        .edit-btn {
-            background-color: #ffa500;
-            color: white;
-        }
+.edit-btn {
+    background-color: #ffa500;
+    color: white;
+}
 
-        .delete-btn {
-            background-color: #e10600;
-            color: white;
-        }
+.delete-btn {
+    background-color: #e10600;
+    color: white;
+}
 
-        .view-btn {
-            background-color: #0077cc;
-            color: white;
-        }
+.view-btn {
+    background-color: #0077cc;
+    color: white;
+}
     </style>
 </head>
 <body>
@@ -179,7 +180,6 @@
                     <li><a href="#equipos">EQUIPOS</a></li>
                     <li><a href="#pilotos">PILOTOS</a></li>
                     <li><a href="#vehiculos">VEHÍCULOS</a></li>
-                    <li><a href="#comparar">COMPARAR</a></li>
                 </ul>
             </nav>
         </div>
@@ -191,14 +191,11 @@
             <h2 class="section-title">Administrar Circuitos</h2>
             <div class="crud-buttons">
                 <button class="btn btn-create">Crear</button>
-                <button class="btn btn-read">Ver Todos</button>
-                <button class="btn btn-update">Actualizar</button>
-                <button class="btn btn-delete">Eliminar</button>
             </div>
             <table class="data-table">
                 <thead>
                     <tr>
-                        <th><input type="checkbox"></th>
+                        <th></th>
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>País</th>
@@ -221,32 +218,6 @@
                             <button class="action-btn delete-btn">Eliminar</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>2</td>
-                        <td>Silverstone</td>
-                        <td>Reino Unido</td>
-                        <td>5.891 km</td>
-                        <td>52</td>
-                        <td>
-                            <button class="action-btn view-btn">Ver</button>
-                            <button class="action-btn edit-btn">Editar</button>
-                            <button class="action-btn delete-btn">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>3</td>
-                        <td>Suzuka</td>
-                        <td>Japón</td>
-                        <td>5.807 km</td>
-                        <td>53</td>
-                        <td>
-                            <button class="action-btn view-btn">Ver</button>
-                            <button class="action-btn edit-btn">Editar</button>
-                            <button class="action-btn delete-btn">Eliminar</button>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </section>
@@ -256,19 +227,16 @@
             <h2 class="section-title">Administrar Equipos</h2>
             <div class="crud-buttons">
                 <button class="btn btn-create">Crear</button>
-                <button class="btn btn-read">Ver Todos</button>
-                <button class="btn btn-update">Actualizar</button>
-                <button class="btn btn-delete">Eliminar</button>
             </div>
             <table class="data-table">
                 <thead>
                     <tr>
-                        <th><input type="checkbox"></th>
+                        <th></th>
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>País</th>
                         <th>Director</th>
-                        <th>Puntos</th>
+                        <th></th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -279,33 +247,7 @@
                         <td>Red Bull Racing</td>
                         <td>Austria</td>
                         <td>Christian Horner</td>
-                        <td>620</td>
-                        <td>
-                            <button class="action-btn view-btn">Ver</button>
-                            <button class="action-btn edit-btn">Editar</button>
-                            <button class="action-btn delete-btn">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>2</td>
-                        <td>Ferrari</td>
-                        <td>Italia</td>
-                        <td>Frédéric Vasseur</td>
-                        <td>550</td>
-                        <td>
-                            <button class="action-btn view-btn">Ver</button>
-                            <button class="action-btn edit-btn">Editar</button>
-                            <button class="action-btn delete-btn">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>3</td>
-                        <td>Mercedes</td>
-                        <td>Alemania</td>
-                        <td>Toto Wolff</td>
-                        <td>480</td>
+                        <td></td>
                         <td>
                             <button class="action-btn view-btn">Ver</button>
                             <button class="action-btn edit-btn">Editar</button>
@@ -321,19 +263,16 @@
             <h2 class="section-title">Administrar Pilotos</h2>
             <div class="crud-buttons">
                 <button class="btn btn-create">Crear</button>
-                <button class="btn btn-read">Ver Todos</button>
-                <button class="btn btn-update">Actualizar</button>
-                <button class="btn btn-delete">Eliminar</button>
             </div>
             <table class="data-table">
                 <thead>
                     <tr>
-                        <th><input type="checkbox"></th>
+                        <th></th>
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Equipo</th>
                         <th>Nacionalidad</th>
-                        <th>Puntos</th>
+                        <th></th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -344,33 +283,7 @@
                         <td>Max Verstappen</td>
                         <td>Red Bull Racing</td>
                         <td>Países Bajos</td>
-                        <td>340</td>
-                        <td>
-                            <button class="action-btn view-btn">Ver</button>
-                            <button class="action-btn edit-btn">Editar</button>
-                            <button class="action-btn delete-btn">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>2</td>
-                        <td>Charles Leclerc</td>
-                        <td>Ferrari</td>
-                        <td>Mónaco</td>
-                        <td>280</td>
-                        <td>
-                            <button class="action-btn view-btn">Ver</button>
-                            <button class="action-btn edit-btn">Editar</button>
-                            <button class="action-btn delete-btn">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>3</td>
-                        <td>Lewis Hamilton</td>
-                        <td>Mercedes</td>
-                        <td>Reino Unido</td>
-                        <td>220</td>
+                        <td>    </td>
                         <td>
                             <button class="action-btn view-btn">Ver</button>
                             <button class="action-btn edit-btn">Editar</button>
@@ -386,14 +299,11 @@
             <h2 class="section-title">Administrar Vehículos</h2>
             <div class="crud-buttons">
                 <button class="btn btn-create">Crear</button>
-                <button class="btn btn-read">Ver Todos</button>
-                <button class="btn btn-update">Actualizar</button>
-                <button class="btn btn-delete">Eliminar</button>
             </div>
             <table class="data-table">
                 <thead>
                     <tr>
-                        <th><input type="checkbox"></th>
+                        <th></th>
                         <th>ID</th>
                         <th>Modelo</th>
                         <th>Equipo</th>
@@ -416,117 +326,25 @@
                             <button class="action-btn delete-btn">Eliminar</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>2</td>
-                        <td>SF-24</td>
-                        <td>Ferrari</td>
-                        <td>2024</td>
-                        <td>Ferrari</td>
-                        <td>
-                            <button class="action-btn view-btn">Ver</button>
-                            <button class="action-btn edit-btn">Editar</button>
-                            <button class="action-btn delete-btn">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>3</td>
-                        <td>W15</td>
-                        <td>Mercedes</td>
-                        <td>2024</td>
-                        <td>Mercedes</td>
-                        <td>
-                            <button class="action-btn view-btn">Ver</button>
-                            <button class="action-btn edit-btn">Editar</button>
-                            <button class="action-btn delete-btn">Eliminar</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- Sección COMPARAR -->
-        <section id="comparar" class="section">
-            <h2 class="section-title">Administrar Comparaciones</h2>
-            <div class="crud-buttons">
-                <button class="btn btn-create">Crear</button>
-                <button class="btn btn-read">Ver Todas</button>
-                <button class="btn btn-update">Actualizar</button>
-                <button class="btn btn-delete">Eliminar</button>
-            </div>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th><input type="checkbox"></th>
-                        <th>ID</th>
-                        <th>Título</th>
-                        <th>Tipo</th>
-                        <th>Elementos</th>
-                        <th>Fecha</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>1</td>
-                        <td>Comparativa Pilotos 2024</td>
-                        <td>Pilotos</td>
-                        <td>Verstappen, Leclerc, Hamilton</td>
-                        <td>15/05/2024</td>
-                        <td>
-                            <button class="action-btn view-btn">Ver</button>
-                            <button class="action-btn edit-btn">Editar</button>
-                            <button class="action-btn delete-btn">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>2</td>
-                        <td>Rendimiento Equipos 2024</td>
-                        <td>Equipos</td>
-                        <td>Red Bull, Ferrari, Mercedes</td>
-                        <td>10/05/2024</td>
-                        <td>
-                            <button class="action-btn view-btn">Ver</button>
-                            <button class="action-btn edit-btn">Editar</button>
-                            <button class="action-btn delete-btn">Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>3</td>
-                        <td>Circuitos Europeos</td>
-                        <td>Circuitos</td>
-                        <td>Mónaco, Silverstone, Monza</td>
-                        <td>05/05/2024</td>
-                        <td>
-                            <button class="action-btn view-btn">Ver</button>
-                            <button class="action-btn edit-btn">Editar</button>
-                            <button class="action-btn delete-btn">Eliminar</button>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </section>
     </main>
-
     <script>
-        // Script básico para la navegación
         document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            });
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
         });
+    });
+});
     </script>
 </body>
+<script src="../scripts/admin.js"></script>
 </html>
