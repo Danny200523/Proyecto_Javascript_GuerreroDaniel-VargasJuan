@@ -5,19 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F1 Simulator - Equipos</title>
     <link rel="stylesheet" href="../styles/teams.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="../STORAGE/img-dash/Logo.svg" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <img src="../STORAGE/img-dash/Logo.svg" alt="F1 Logo" class="logo" />
-        <nav>
-            <a href="./circuits.html">Circuitos</a>
-            <a href="./teams.html">Escuderias</a>
-            <a href="./drivers.html">Pilotos</a>
-            <a href="./cars.html">Vehiculos</a>
-            <a href="./comparation.html">Comparar</a>
-        </nav>
-    </header>
+    <f1-header></f1-header>
 
     <main class="main-content">
         <h1 class="section-title">Escuderías:</h1>
@@ -25,74 +16,75 @@
         <div class="teams-grid">
             <!-- Red Bull -->
             <div class="team-card">
-                <img src="https://brandlogos.net/wp-content/uploads/2022/05/red_bull_racing-logo-brandlogos.net_-512x512.png" alt="Red Bull Logo" class="team-logo">
+                <img class="red" src="https://brandlogos.net/wp-content/uploads/2022/05/red_bull_racing-logo-brandlogos.net_-512x512.png" alt="Red Bull Logo" class="team-logo">
                 <!-- Imagen de fondo personalizable -->
                 <img src="https://www.formula1.com/content/dam/fom-website/teams/2025/red-bull-racing.jpg" alt="Red Bull Background" class="team-background">
             </div>
             
             <!-- Ferrari -->
             <div class="team-card">
-                <img src="https://brandlogos.net/wp-content/uploads/2023/12/scuderia_ferrari-logo_brandlogos.net_uupa6-512x697.png" alt="Ferrari Logo" class="team-logo">
+                <img class="ferrari" src="https://brandlogos.net/wp-content/uploads/2023/12/scuderia_ferrari-logo_brandlogos.net_uupa6-512x697.png" alt="Ferrari Logo" class="team-logo">
                 <!-- Imagen de fondo personalizable -->
                 <img src="https://www.formula1.com/content/dam/fom-website/teams/2025/ferrari.jpg" alt="Ferrari Background" class="team-background">
             </div>
             
             <!-- Aston Martin -->
             <div class="team-card">
-                <img src="https://i.ibb.co/fYrPY0ft/image-40.png" alt="Aston Martin Logo" class="team-logo">
+                <img class="aston"  src="https://i.ibb.co/fYrPY0ft/image-40.png" alt="Aston Martin Logo" class="team-logo">
                 <!-- Imagen de fondo personalizable -->
                 <img src="https://www.formula1.com/content/dam/fom-website/teams/2025/aston-martin.jpg" alt="Aston Martin Background" class="team-background">
             </div>
             
             <!-- Mercedes -->
             <div class="team-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Mercedes_AMG_Petronas_F1_Logo.svg" alt="Mercedes Logo" class="team-logo">
+                <img class="mercedes" src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Mercedes_AMG_Petronas_F1_Logo.svg" alt="Mercedes Logo" class="team-logo">
                 <!-- Imagen de fondo personalizable -->
                 <img src="https://www.formula1.com/content/dam/fom-website/teams/2025/mercedes.jpg" alt="Mercedes Background" class="team-background">
             </div>
 
             <!-- McLaren -->
             <div class="team-card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/6/66/McLaren_Racing_logo.svg" alt="McLaren Logo" class="team-logo">
+                <img class="mc" src="https://upload.wikimedia.org/wikipedia/en/6/66/McLaren_Racing_logo.svg" alt="McLaren Logo" class="team-logo">
                 <!-- Imagen de fondo personalizable -->
                 <img src="https://www.formula1.com/content/dam/fom-website/teams/2025/mclaren.jpg" alt="McLaren Background" class="team-background">
             </div>
 
             <!-- Alpine -->
             <div class="team-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Alpine_F1_Team_Logo.svg"" alt="Alpine Logo" class="team-logo">
+                <img class="a" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Alpine_F1_Team_Logo.svg"" alt="Alpine Logo" class="team-logo">
                 <!-- Imagen de fondo personalizable -->
                 <img src="https://www.formula1.com/content/dam/fom-website/teams/2025/alpine.jpg"" alt="Alpine Background" class="team-background">
             </div>
 
             <!-- Haas -->
             <div class="team-card">
-                <img src="https://i.ibb.co/Q3qtmN8h/image-42.png" alt="Haas Logo" class="team-logo">
+                <img class="h" src="https://i.ibb.co/Q3qtmN8h/image-42.png" alt="Haas Logo" class="team-logo">
                 <!-- Imagen de fondo personalizable -->
                 <img src="https://www.formula1.com/content/dam/fom-website/teams/2025/haas.jpg" alt="Haas Background" class="team-background">
             </div>
 
             <!-- Williams -->
             <div class="team-card">
-                <img src="https://i.ibb.co/BV7Tx6Zy/Mercedes-Logo-svg-2.png" alt="Williams Logo" class="team-logo">
+                <img class="w" src="https://i.ibb.co/BV7Tx6Zy/Mercedes-Logo-svg-2.png" alt="Williams Logo" class="team-logo">
                 <!-- Imagen de fondo personalizable -->
                 <img src="https://www.formula1.com/content/dam/fom-website/teams/2025/williams.jpg" alt="Williams Background" class="team-background">
             </div>
 
             <!-- RB (AlphaTauri) -->
             <div class="team-card">
-                <img src="https://brandlogos.net/wp-content/uploads/2025/02/racing_bulls-logo_brandlogos.net_bjuef-512x425.png" alt="RB Logo" class="team-logo">
+                <img class="rb" src="https://brandlogos.net/wp-content/uploads/2025/02/racing_bulls-logo_brandlogos.net_bjuef-512x425.png" alt="RB Logo" class="team-logo">
                 <!-- Imagen de fondo personalizable -->
                 <img src="https://www.formula1.com/content/dam/fom-website/teams/2025/racing-bulls.jpg" alt="RB Background" class="team-background">
             </div>
 
             <!-- Kick Sauber -->
             <div class="team-card">
-                <img src="https://i.ibb.co/yB75Dz0C/kick-logo-500x500-collection-1.png" alt="Kick Sauber Logo" class="team-logo">
+                <img class="k" src="https://i.ibb.co/yB75Dz0C/kick-logo-500x500-collection-1.png" alt="Kick Sauber Logo" class="team-logo">
                 <!-- Imagen de fondo personalizable -->
                 <img src="https://www.formula1.com/content/dam/fom-website/teams/2025/kick-sauber.jpg" alt="Kick Sauber Background" class="team-background">
             </div>
         </div>
     </main>
 </body>
+<script src="../scripts/web.js" ></script>
 </html>

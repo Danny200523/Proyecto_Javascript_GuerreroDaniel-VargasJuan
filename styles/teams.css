@@ -2,81 +2,9 @@
 body{
     background-color: #000;
     font-family: "Orbitron";
-}
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #000;
+    color: white;
 }
 
-.logo {
-    height: 40px;
-}
-
-nav {
-    display: flex;
-    gap: 2rem;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 0.5rem 0;
-    position: relative;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #ff0000;
-}
-
-body {
-    background-color: #000;
-    color: #fff;
-}
-
-.header {
-    background-color: #000;
-    padding: 15px 0;
-    border-bottom: 1px solid #333;
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    width: 80px;
-    height: auto;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-}
-
-.nav-item {
-    margin: 0 20px;
-    position: relative;
-}
-
-.nav-link {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 10px 0;
-}
 
 .active {
     position: relative;
@@ -123,7 +51,7 @@ body {
 .team-logo {
     position: absolute;
     top: 20px;
-    left: 20px;
+    left: 100px;
     width: 120px;
     height: auto;
     z-index: -1;
@@ -136,8 +64,8 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.3;
-    transition: opacity 0.3s ease;
+    opacity: 0.1;
+    transition: opacity 0.2s ease;
     z-index: -1;
 }
 
@@ -145,15 +73,138 @@ body {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 85%;
+    width: 80%;
     height: auto;
     z-index: 3;
 }
 
 .team-card:hover .team-background {
-    opacity: 0.5;
+    opacity: 1;
 }
 
+.team-card:hover .red {
+    opacity: 0.1;
+    
+}
+.red{
+    position: absolute;
+    top: -130px;
+    left: 90px;
+    width: 350px;
+    height: auto;
+    z-index: -1;
+}
+.team-card:hover .ferrari {
+    opacity: 0.1;
+}
+
+.ferrari{
+    position: absolute;
+    top: 0px;
+    left: 200px;
+    width: 100px;
+    height: auto;
+    z-index: -1;
+}
+.team-card:hover .aston {
+    opacity: 0.1;
+}
+
+.aston{
+    position: absolute;
+    top: 0px;
+    left: 100px;
+    width: 300px;
+    height: auto;
+    z-index: -1;
+}
+
+.team-card:hover .mercedes {
+    opacity: 0.1;
+}
+
+.mercedes{
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    width: 400px;
+    height: auto;
+    z-index: -1;
+}
+.team-card:hover .a {
+    opacity: 0.1;
+}
+
+.a{
+    position: absolute;
+    top: 30px;
+    left: 150px;
+    width: 200px;
+    height: auto;
+    z-index: -1;
+    filter: saturate(3000%);
+}
+
+.team-card:hover .h {
+    opacity: 0.1;
+}
+
+.h{
+    position: absolute;
+    top: 30px;
+    left: 150px;
+    width: 130px;
+    height: auto;
+    z-index: -1; 
+}
+.team-card:hover .mc {
+    opacity: 0.1;
+}
+.mc{
+    position: absolute;
+    top: 30px;
+    left: -320px;
+    width: 600px;
+    height: auto;
+    z-index: -1; 
+}
+.team-card:hover .w {
+    opacity: 0.1;
+}
+
+.w{
+    position: absolute;
+    top: 30px;
+    left: 150px;
+    width: 180px;
+    height: auto;
+    z-index: -1; 
+}
+
+.team-card:hover .rb {
+    opacity: 0.1;
+}
+
+.rb{
+    position: absolute;
+    top: 30px;
+    left: 100px;
+    width: 180px;
+    height: auto;
+    z-index: -1; 
+}
+
+.team-card:hover .k {
+    opacity: 0.1;
+}
+.k{
+    position: absolute;
+    top: 30px;
+    left: 150px;
+    width: 180px;
+    height: auto;
+    z-index: -1; 
+}
 @media (max-width: 768px) {
     .teams-grid {
         grid-template-columns: 1fr;
