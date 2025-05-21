@@ -144,7 +144,7 @@ btnAbrirModalCIRCUIT.onclick = function() {
         </div>
         <div class="form-group">
             <label for="nombre">Link de la Foto:</label>
-            <input type="link" id="nombre" name="nombre" required>
+            <input type="link" id="photo" name="nombre" required>
         </div>
         <div class="form-group">
             <label for="pais">País:</label>
@@ -152,7 +152,7 @@ btnAbrirModalCIRCUIT.onclick = function() {
         </div>
         <div class="form-group">
             <label for="longitud">Longitud (km):</label>
-            <input type="number" id="longitud" name="longitud" step="0.01" required>
+            <input type="number" id="longitud_km" name="longitud" step="0.01" required>
         </div>
         <div class="form-group">
             <label for="vueltas">Vueltas:</label>
@@ -160,20 +160,20 @@ btnAbrirModalCIRCUIT.onclick = function() {
         </div>
         <div class="form-group">
             <label for="vueltas">Descripcion:</label>
-            <input type="text" id="vueltas" name="vueltas" required>
+            <input type="text" id="descripcion" name="vueltas" required>
         </div>
         <div class="form-group">
-            <label for="record">Récord:</label>
+            <label for="record">Récord vuelta:</label>
             <label for="record">Tiempo:</label>
-            <input type="text" id="record" name="record" placeholder="1:XX.XXX">
+            <input type="text" id="tiempo" name="record" placeholder="1:XX.XXX">
         </div>
         <div class="form-group">
             <label for="record">Año:</label>
-            <input type="text" id="record" name="record" placeholder="Año">
+            <input type="text" id="ano" name="record" placeholder="Año">
         </div>
         <div class="form-group">
             <label for="record">Piloto:</label>
-            <input type="text" id="record" name="record" placeholder="Piloto">
+            <input type="text" id="piloto" name="record" placeholder="Piloto">
         </div>
         <div class="modal-footer">
             <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
@@ -201,13 +201,45 @@ btnAbrirModalCIRCUIT.onclick = function() {
         event.preventDefault();
 
         const nombre = document.getElementById('nombre').value;
+        const photo = document.getElementById('photo')
         const pais = document.getElementById('pais').value;
-        const longitud = document.getElementById('longitud').value;
+        const longitud = document.getElementById('longitud_km').value;
         const vueltas = document.getElementById('vueltas').value;
-        const record = document.getElementById('record').value;
+        const descrip = document.getElementById('descipcion')
+        const tiempor = document.getElementById('tiempo').value;
+        const añor = document.getElementById('ano').value;
+        const pil = document.getElementById('piloto').value;
 
-        console.log('Datos del circuito:', { nombre, pais, longitud, vueltas, record });
+        fetch(url)
+        .then(response=>response.json())
+        .then(data=>{
+            let neew = {
+            "id":(data[0].circuitos.length)+1,
+            "nombre":nombre,
+            "photo":photo,
+            "pais":pais,
+            "longitud_km":longitud,
+            "vueltas":vueltas,
+            "descripcion":descrip,
+            "record_vuelta":{
+                "tiempo":tiempor,
+                "piloto":pil,
+                "año":añor
+            }
+        }
+        })
 
+        console.log('Datos del circuito:', { nombre,photo, pais, longitud, vueltas,descrip, tiempor,añor,pil });
+
+        fetch(`${url}/`,{
+            method:"POST",
+            headers: {
+    'Content-Type': 'application/json' // Tell server the data is JSON
+            },
+            body:JSON.stringify(neew)
+        })
+        
+        
         modal.style.display = 'none';
 
         alert('Circuito guardado correctamente');
