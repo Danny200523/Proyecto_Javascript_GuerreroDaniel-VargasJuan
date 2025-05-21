@@ -123,20 +123,320 @@ document.addEventListener('DOMContentLoaded',()=>{
 /////////////                    Create CRUD                         ////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-function createCircuit(){
-    const modal = document.getElementById('modalCircuito');
-    const btnAbrirModal = document.getElementById('btn circuit create');
+const modal = document.getElementById('modalCircuito');
+const btnAbrirModalCIRCUIT = document.getElementById('btn circuit create');
+const btnAbrirModalPilot = document.getElementById('btn pilot create');
+const btnAbrirModalMonoplaza = document.getElementById('btn monoplaza create');
+const btnAbrirModalEscuderia = document.getElementById('btn teams create');
+const btnCancelar = document.getElementById('btnCancelar');
+const span = document.getElementsByClassName('close')[0];
+const formCircuito = document.getElementById('form');
+
+btnAbrirModalCIRCUIT.onclick = function() {
+    document.getElementById('modalTitle').textContent = 'Crear Nuevo Circuito';
+    formCircuito.reset();
+    modal.style.display = 'block';
+    formCircuito.innerHTML = ``;
+    formCircuito.innerHTML = `
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Link de la Foto:</label>
+            <input type="link" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="pais">País:</label>
+            <input type="text" id="pais" name="pais" required>
+        </div>
+        <div class="form-group">
+            <label for="longitud">Longitud (km):</label>
+            <input type="number" id="longitud" name="longitud" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="vueltas">Vueltas:</label>
+            <input type="number" id="vueltas" name="vueltas" required>
+        </div>
+        <div class="form-group">
+            <label for="vueltas">Descripcion:</label>
+            <input type="text" id="vueltas" name="vueltas" required>
+        </div>
+        <div class="form-group">
+            <label for="record">Récord:</label>
+            <label for="record">Tiempo:</label>
+            <input type="text" id="record" name="record" placeholder="1:XX.XXX">
+        </div>
+        <div class="form-group">
+            <label for="record">Año:</label>
+            <input type="text" id="record" name="record" placeholder="Año">
+        </div>
+        <div class="form-group">
+            <label for="record">Piloto:</label>
+            <input type="text" id="record" name="record" placeholder="Piloto">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
+            <button type="submit" class="btn-guardar">Guardar</button>
+        </div>
+            `;
     const btnCancelar = document.getElementById('btnCancelar');
     const span = document.getElementsByClassName('close')[0];
-    const formCircuito = document.getElementById('formCircuito');
-    const btnEditar = document.getElementsByClassName('btn-editar');
-
-    btnAbrirModal.onclick = function() {
-        document.getElementById('modalTitle').textContent = 'Crear Nuevo Circuito';
-        formCircuito.reset();
-        modal.style.display = 'block';
+    span.onclick = function() {
+        modal.style.display = 'none';
     };
 
+    btnCancelar.onclick = function() {
+        modal.style.display = 'none';
+    };
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+
+
+    formCircuito.onsubmit = function(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById('nombre').value;
+        const pais = document.getElementById('pais').value;
+        const longitud = document.getElementById('longitud').value;
+        const vueltas = document.getElementById('vueltas').value;
+        const record = document.getElementById('record').value;
+
+        console.log('Datos del circuito:', { nombre, pais, longitud, vueltas, record });
+
+        modal.style.display = 'none';
+
+        alert('Circuito guardado correctamente');
+    };
+};
+
+btnAbrirModalPilot.onclick = function() {
+    document.getElementById('modalTitle').textContent = 'Crear Nuevo Piloto';
+    formCircuito.reset();
+    modal.style.display = 'block';
+    formCircuito.innerHTML = ``;
+
+    formCircuito.innerHTML = `
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Link de la Foto:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="pais">País:</label>
+            <input type="text" id="pais" name="pais" required>
+        </div>
+        <div class="form-group">
+            <label for="longitud">Longitud (km):</label>
+            <input type="number" id="longitud" name="longitud" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="vueltas">Vueltas:</label>
+            <input type="number" id="vueltas" name="vueltas" required>
+        </div>
+        <div class="form-group">
+            <label for="vueltas">Descripcion:</label>
+            <input type="number" id="vueltas" name="vueltas" required>
+        </div>
+        <div class="form-group">
+            <label for="record">Récord:</label>
+            <label for="record">Tiempo:</label>
+            <input type="text" id="record" name="record" placeholder="1:XX.XXX">
+        </div>
+        <div class="form-group">
+            <label for="record">Año:</label>
+            <input type="text" id="record" name="record" placeholder="Año">
+        </div>
+        <div class="form-group">
+            <label for="record">Piloto:</label>
+            <input type="text" id="record" name="record" placeholder="Piloto">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
+            <button type="submit" class="btn-guardar">Guardar</button>
+        </div>
+            `;
+
+
+    const btnCancelar = document.getElementById('btnCancelar');
+    const span = document.getElementsByClassName('close')[0];
+    span.onclick = function() {
+        modal.style.display = 'none';
+    };
+
+    btnCancelar.onclick = function() {
+        modal.style.display = 'none';
+    };
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+
+
+    formCircuito.onsubmit = function(event) {
+        event.preventDefault();
+    
+        const nombre = document.getElementById('nombre').value;
+        const pais = document.getElementById('pais').value;
+        const longitud = document.getElementById('longitud').value;
+        const vueltas = document.getElementById('vueltas').value;
+        const record = document.getElementById('record').value;
+    
+        console.log('Datos del circuito:', { nombre, pais, longitud, vueltas, record });
+    
+        modal.style.display = 'none';
+    
+        alert('Circuito guardado correctamente');
+    };
+};
+
+btnAbrirModalMonoplaza.onclick = function() {
+    document.getElementById('modalTitle').textContent = 'Crear Nuevo Monoplaza';
+    formCircuito.reset();
+    modal.style.display = 'block';
+    formCircuito.innerHTML = ``;
+
+    formCircuito.innerHTML = `
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Link de la Foto:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="pais">País:</label>
+            <input type="text" id="pais" name="pais" required>
+        </div>
+        <div class="form-group">
+            <label for="longitud">Longitud (km):</label>
+            <input type="number" id="longitud" name="longitud" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="vueltas">Vueltas:</label>
+            <input type="number" id="vueltas" name="vueltas" required>
+        </div>
+        <div class="form-group">
+            <label for="vueltas">Descripcion:</label>
+            <input type="number" id="vueltas" name="vueltas" required>
+        </div>
+        <div class="form-group">
+            <label for="record">Récord:</label>
+            <label for="record">Tiempo:</label>
+            <input type="text" id="record" name="record" placeholder="1:XX.XXX">
+        </div>
+        <div class="form-group">
+            <label for="record">Año:</label>
+            <input type="text" id="record" name="record" placeholder="Año">
+        </div>
+        <div class="form-group">
+            <label for="record">Piloto:</label>
+            <input type="text" id="record" name="record" placeholder="Piloto">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
+            <button type="submit" class="btn-guardar">Guardar</button>
+        </div>
+            `;
+
+
+    const btnCancelar = document.getElementById('btnCancelar');
+    const span = document.getElementsByClassName('close')[0];
+    span.onclick = function() {
+        modal.style.display = 'none';
+    };
+
+    btnCancelar.onclick = function() {
+        modal.style.display = 'none';
+    };
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+
+
+    formCircuito.onsubmit = function(event) {
+        event.preventDefault();
+    
+        const nombre = document.getElementById('nombre').value;
+        const pais = document.getElementById('pais').value;
+        const longitud = document.getElementById('longitud').value;
+        const vueltas = document.getElementById('vueltas').value;
+        const record = document.getElementById('record').value;
+    
+        console.log('Datos del circuito:', { nombre, pais, longitud, vueltas, record });
+    
+        modal.style.display = 'none';
+    
+        alert('Circuito guardado correctamente');
+    };
+};
+
+btnAbrirModalEscuderia.onclick = function() {
+    document.getElementById('modalTitle').textContent = 'Crear Nuevo Escuderia';
+    formCircuito.reset();
+    modal.style.display = 'block';
+    formCircuito.innerHTML = ``;
+
+
+    formCircuito.innerHTML = `
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Link de la Foto:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="pais">País:</label>
+            <input type="text" id="pais" name="pais" required>
+        </div>
+        <div class="form-group">
+            <label for="longitud">Longitud (km):</label>
+            <input type="number" id="longitud" name="longitud" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="vueltas">Vueltas:</label>
+            <input type="number" id="vueltas" name="vueltas" required>
+        </div>
+        <div class="form-group">
+            <label for="vueltas">Descripcion:</label>
+            <input type="number" id="vueltas" name="vueltas" required>
+        </div>
+        <div class="form-group">
+            <label for="record">Récord:</label>
+            <label for="record">Tiempo:</label>
+            <input type="text" id="record" name="record" placeholder="1:XX.XXX">
+        </div>
+        <div class="form-group">
+            <label for="record">Año:</label>
+            <input type="text" id="record" name="record" placeholder="Año">
+        </div>
+        <div class="form-group">
+            <label for="record">Piloto:</label>
+            <input type="text" id="record" name="record" placeholder="Piloto">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
+            <button type="submit" class="btn-guardar">Guardar</button>
+        </div>
+            `;
+
+    const btnCancelar = document.getElementById('btnCancelar');
+    const span = document.getElementsByClassName('close')[0];
     span.onclick = function() {
         modal.style.display = 'none';
     };
@@ -153,30 +453,17 @@ function createCircuit(){
 
     formCircuito.onsubmit = function(event) {
         event.preventDefault();
-
-        // Aquí iría la lógica para guardar los datos
+    
         const nombre = document.getElementById('nombre').value;
         const pais = document.getElementById('pais').value;
         const longitud = document.getElementById('longitud').value;
         const vueltas = document.getElementById('vueltas').value;
         const record = document.getElementById('record').value;
-
+    
         console.log('Datos del circuito:', { nombre, pais, longitud, vueltas, record });
-
+    
         modal.style.display = 'none';
-
+    
         alert('Circuito guardado correctamente');
     };
-};
-
-function createTeam(){
-    console.log("Create Team")
-};
-
-function createPilot(){
-    console.log("Create Pilot")
-};
-
-function createMonoplaza(){
-    console.log("Create Monoplaza")
 };
