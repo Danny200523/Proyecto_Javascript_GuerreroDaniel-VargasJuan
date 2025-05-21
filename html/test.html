@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrar Circuitos F1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #000000;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            margin-left: 20px;
+        }
+        
+        .nav-items {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+        }
+        
+        .nav-items a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+        
+        .admin-panel {
+            margin-right: 20px;
+        }
+        
+        .container {
+            width: 90%;
+            margin: 20px auto;
+        }
+        
+        h1 {
+            color: #ff0000;
+            margin-bottom: 20px;
+        }
+        
+        .btn-crear {
+            background-color: #00a651;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background-color: #1a1a1a;
+            color: #ff0000;
+            text-align: left;
+            padding: 10px;
+        }
+        
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #333;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #181818;
+        }
+        
+        .btn-editar {
+            background-color: #ffa500;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        
+        .btn-eliminar {
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        /* Estilos para el modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+        }
+        
+        .modal-content {
+            background-color: #1a1a1a;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #333;
+            width: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #fff;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            background-color: #333;
+            border: 1px solid #444;
+            color: white;
+        }
+        
+        .modal-footer {
+            margin-top: 20px;
+            text-align: right;
+        }
+        
+        .btn-guardar {
+            background-color: #00a651;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .btn-cancelar {
+            background-color: #666;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/api/placeholder/150/50" alt="F1 Logo">
+        </div>
+        <div class="nav-items">
+            <a href="#">CIRCUITOS</a>
+            <a href="#">EQUIPOS</a>
+            <a href="#">PILOTOS</a>
+            <a href="#">VEHÍCULOS</a>
+        </div>
+        <div class="admin-panel">
+            Panel de Administración
+        </div>
+    </header>
+    
+    <div class="container">
+        <h1>ADMINISTRAR CIRCUITOS</h1>
+        <button class="btn-crear" id="btnAbrirModal">Crear</button>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>País</th>
+                    <th>Longitud</th>
+                    <th>Vueltas</th>
+                    <th>Récord</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Circuito de Mónaco</td>
+                    <td>Mónaco</td>
+                    <td>3.34 km</td>
+                    <td>78</td>
+                    <td>1:10.166 (2019)</td>
+                    <td>
+                        <button class="btn-editar">Editar</button>
+                        <button class="btn-eliminar">Eliminar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Silverstone</td>
+                    <td>Reino Unido</td>
+                    <td>5.89 km</td>
+                    <td>52</td>
+                    <td>1:27.097 (2020)</td>
+                    <td>
+                        <button class="btn-editar">Editar</button>
+                        <button class="btn-eliminar">Eliminar</button>
+                    </td>
+                </tr>
+                <!-- Agregar más filas aquí -->
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Modal para crear/editar circuitos -->
+    
+
+    <script>
+        // Obtener elementos del DOM
+        const modal = document.getElementById('modalCircuito');
+        const btnAbrirModal = document.getElementById('btnAbrirModal');
+        const btnCancelar = document.getElementById('btnCancelar');
+        const span = document.getElementsByClassName('close')[0];
+        const formCircuito = document.getElementById('formCircuito');
+        const btnEditar = document.getElementsByClassName('btn-editar');
+        
+        // Abrir modal al hacer clic en "Crear"
+        btnAbrirModal.onclick = function() {
+            document.getElementById('modalTitle').textContent = 'Crear Nuevo Circuito';
+            formCircuito.reset();
+            modal.style.display = 'block';
+        }
+        
+        // Cerrar modal al hacer clic en la X
+        span.onclick = function() {
+            modal.style.display = 'none';
+        }
+        
+        // Cerrar modal al hacer clic en "Cancelar"
+        btnCancelar.onclick = function() {
+            modal.style.display = 'none';
+        }
+        
+        // Cerrar modal al hacer clic fuera del contenido
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+        
+        // Manejar envío del formulario
+        formCircuito.onsubmit = function(event) {
+            event.preventDefault();
+            
+            // Aquí iría la lógica para guardar los datos
+            const nombre = document.getElementById('nombre').value;
+            const pais = document.getElementById('pais').value;
+            const longitud = document.getElementById('longitud').value;
+            const vueltas = document.getElementById('vueltas').value;
+            const record = document.getElementById('record').value;
+            
+            console.log('Datos del circuito:', { nombre, pais, longitud, vueltas, record });
+            
+            // Cerrar el modal después de guardar
+            modal.style.display = 'none';
+            
+            // Simular actualización de la tabla (en una app real, aquí se actualizaría la tabla con los nuevos datos)
+            alert('Circuito guardado correctamente');
+        }
+        
+        // Configurar botones de editar
+        for (let i = 0; i < btnEditar.length; i++) {
+            btnEditar[i].onclick = function() {
+                const fila = this.parentElement.parentElement;
+                const celdas = fila.getElementsByTagName('td');
+                
+                document.getElementById('modalTitle').textContent = 'Editar Circuito';
+                document.getElementById('nombre').value = celdas[1].textContent;
+                document.getElementById('pais').value = celdas[2].textContent;
+                document.getElementById('longitud').value = parseFloat(celdas[3].textContent);
+                document.getElementById('vueltas').value = parseInt(celdas[4].textContent);
+                document.getElementById('record').value = celdas[5].textContent;
+                
+                modal.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -13,13 +13,16 @@ document.querySelectorAll('nav a').forEach(anchor => {
     });
 });
 //////////////////////////////////////////////////////////////////
+//////////////////          Renderizar             ///////////////
+//////////////////////////////////////////////////////////////////
+
 const url = `https://67f91aad094de2fe6ea07a32.mockapi.io/people/project/F1`;
 const editcircuit = document.getElementById('table-circuit')
 const editescuderia = document.getElementById('table-escuderia')
 const editpiloto = document.getElementById('table-pilotos')
 const editmonoplaza = document.getElementById('table-monoplaza')
 
-async function rendercircuit(){
+async function renderAll(){
     await fetch(url)
     .then(response=>response.json())
     .then(data=>{
@@ -38,26 +41,18 @@ async function rendercircuit(){
                 <td>${circuito.vueltas}</td>
                 <td>${circuito.record_vuelta.tiempo} (${circuito.record_vuelta.año})</td>
                 <td>
-                    <button class="action-btn view-btn">Ver</button>
-                    <button class="action-btn edit-btn">Editar</button>
-                    <button class="action-btn delete-btn">Eliminar</button>
+                    <button id="" class="action-btn edit-btn">Editar</button>
+                    <button id="" class="action-btn delete-btn">Eliminar</button>
                 </td>
             </tr>
             `
         }
-    editcircuit.innerHTML = html    
-})}
-
-async function renderEscuderias() {
-    await fetch(url)
-    .then(response=>response.json())
-    .then(data=>{
-        console.log(data)
-        let escuderias = data[0].equipos
-        let html = ``;
+    editcircuit.innerHTML = html
+    let escuderias = data[0].equipos
+        let html1 = ``;
         for (i=0;i<escuderias.length;i++){
             let escuderia = escuderias[i]
-            html += `
+            html1 += `
             <tr>
                 <td></td>
                 <td>${escuderia.id}</td>
@@ -67,26 +62,19 @@ async function renderEscuderias() {
                 <td>${escuderia.motor}</td>
                 <td></td>
                 <td>
-                    <button class="action-btn view-btn">Ver</button>
-                    <button class="action-btn edit-btn">Editar</button>
-                    <button class="action-btn delete-btn">Eliminar</button>
+                    <button id="" class="action-btn edit-btn">Editar</button>
+                    <button id="" class="action-btn delete-btn">Eliminar</button>
                 </td>
             </tr>
             `
         }
-    editescuderia.innerHTML = html
-})}
+    editescuderia.innerHTML = html1
 
-async function renderPilotos() {
-    await fetch(url)
-    .then(response=>response.json())
-    .then(data=>{
-        console.log(data)
-        let pilotos = data[0].pilotos
-        let html = ``;
+    let pilotos = data[0].pilotos
+        let html2 = ``;
         for (i=0;i<pilotos.length;i++){
             let piloto = pilotos[i]
-            html += `
+            html2 += `
             <tr>
                 <td></td>
                 <td>${piloto.id}</td>
@@ -96,26 +84,19 @@ async function renderPilotos() {
                 <td>${piloto.nacionalidad}</td>
                 <td>${piloto.rol}</td>
                 <td>
-                    <button class="action-btn view-btn">Ver</button>
-                    <button class="action-btn edit-btn">Editar</button>
-                    <button class="action-btn delete-btn">Eliminar</button>
+                    <button id="" class="action-btn edit-btn">Editar</button>
+                    <button id="" class="action-btn delete-btn">Eliminar</button>
                 </td>
             </tr>
             `
         }
-    editpiloto.innerHTML = html
-})}
+    editpiloto.innerHTML = html2
 
-async function renderMonoplaza() {
-    await fetch(url)
-    .then(response=>response.json())
-    .then(data=>{
-        console.log(data)
-        let monoplazas = data[0].monoplazas
-        let html = ``;
+    let monoplazas = data[0].monoplazas
+        let html3 = ``;
         for (i=0;i<monoplazas.length;i++){
             let monoplaza = monoplazas[i]
-            html += `
+            html3 += `
             <tr>
                 <td></td>
                 <td>${monoplaza.id}</td>
@@ -126,19 +107,76 @@ async function renderMonoplaza() {
                 <td>${monoplaza.motor}</td>
                 <td>${monoplaza.velocidad_maxima_kmh} Km</td>
                 <td>
-                    <button class="action-btn view-btn">Ver</button>
-                    <button class="action-btn edit-btn">Editar</button>
-                    <button class="action-btn delete-btn">Eliminar</button>
+                    <button id="" class="action-btn edit-btn">Editar</button>
+                    <button id="" class="action-btn delete-btn">Eliminar</button>
                 </td>
             </tr>
             `
         }
-    editmonoplaza.innerHTML = html
+    editmonoplaza.innerHTML = html3
 })}
 
 document.addEventListener('DOMContentLoaded',()=>{
-    rendercircuit();
-    renderEscuderias();
-    renderPilotos();
-    renderMonoplaza();
+    renderAll();
 })
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////////                    Create CRUD                         ////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+
+function createCircuit(){
+    const modal = document.getElementById('modalCircuito');
+    const btnAbrirModal = document.getElementById('btn circuit create');
+    const btnCancelar = document.getElementById('btnCancelar');
+    const span = document.getElementsByClassName('close')[0];
+    const formCircuito = document.getElementById('formCircuito');
+    const btnEditar = document.getElementsByClassName('btn-editar');
+
+    btnAbrirModal.onclick = function() {
+        document.getElementById('modalTitle').textContent = 'Crear Nuevo Circuito';
+        formCircuito.reset();
+        modal.style.display = 'block';
+    };
+
+    span.onclick = function() {
+        modal.style.display = 'none';
+    };
+
+    btnCancelar.onclick = function() {
+        modal.style.display = 'none';
+    };
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+
+    formCircuito.onsubmit = function(event) {
+        event.preventDefault();
+
+        // Aquí iría la lógica para guardar los datos
+        const nombre = document.getElementById('nombre').value;
+        const pais = document.getElementById('pais').value;
+        const longitud = document.getElementById('longitud').value;
+        const vueltas = document.getElementById('vueltas').value;
+        const record = document.getElementById('record').value;
+
+        console.log('Datos del circuito:', { nombre, pais, longitud, vueltas, record });
+
+        modal.style.display = 'none';
+
+        alert('Circuito guardado correctamente');
+    };
+};
+
+function createTeam(){
+    console.log("Create Team")
+};
+
+function createPilot(){
+    console.log("Create Pilot")
+};
+
+function createMonoplaza(){
+    console.log("Create Monoplaza")
+};
