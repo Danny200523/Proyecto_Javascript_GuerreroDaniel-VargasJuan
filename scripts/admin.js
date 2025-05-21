@@ -35,7 +35,7 @@ async function renderAll(){
             <tr>
                 <td></td>
                 <td>${circuito.id}</td>
-                <td>${circuito.nombre}</td>
+                <td>${circuito.nombre}</td> 
                 <td>${circuito.pais}</td>
                 <td>${circuito.longitud_km} km</td>
                 <td>${circuito.vueltas}</td>
@@ -480,8 +480,8 @@ btnAbrirModalMonoplaza.onclick = function() {
       <div class="vehicle-form-section">
         <h3 class="vehicle-form-title">Rendimiento - Conducción Agresiva</h3>
         <div class="vehicle-form-group">
-    <label for="normal_velocidad" class="vehicle-required">Velocidad Promedio (km/h)</label>
-    <input type="number" id="normal_velocidad" name="normal_velocidad" min="0" required>
+    <label for="agresiva_velocidad" class="vehicle-required">Velocidad Promedio (km/h)</label>
+    <input type="number" id="agresiva_velocidad" name="agresiva_velocidad" min="0" required>
     <div class="vehicle-help-text" style="color: #e10600;">Por favor ingrese un valor válido</div>
   </div>
   
@@ -502,13 +502,13 @@ btnAbrirModalMonoplaza.onclick = function() {
         Consumo de Combustible (L/100km)
       </div>
       <div>
-        <input type="number" step="0.1" name="normal_comb_seco" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
+        <input type="number" step="0.1" name="agresiva_comb_seco" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
       </div>
       <div>
-        <input type="number" step="0.1" name="normal_comb_lluvia" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
+        <input type="number" step="0.1" name="agresiva_comb_lluvia" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
       </div>
       <div>
-        <input type="number" step="0.1" name="normal_comb_extremo" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
+        <input type="number" step="0.1" name="agresiva_comb_extremo" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
       </div>
     </div>
     
@@ -518,13 +518,13 @@ btnAbrirModalMonoplaza.onclick = function() {
         Desgaste Neumáticos (%/100km)
       </div>
       <div>
-        <input type="number" step="0.1" name="normal_neum_seco" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
+        <input type="number" step="0.1" name="agresiva_neum_seco" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
       </div>
       <div>
-        <input type="number" step="0.1" name="normal_neum_lluvia" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
+        <input type="number" step="0.1" name="agresiva_neum_lluvia" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
       </div>
       <div>
-        <input type="number" step="0.1" name="normal_neum_extremo" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
+        <input type="number" step="0.1" name="agresiva_neum_extremo" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
       </div>
     </div>
   </div>
@@ -534,8 +534,8 @@ btnAbrirModalMonoplaza.onclick = function() {
       <div class="vehicle-form-section">
         <h3 class="vehicle-form-title">Rendimiento - Ahorro de Combustible</h3>
         <div class="vehicle-form-group">
-    <label for="normal_velocidad" class="vehicle-required">Velocidad Promedio (km/h)</label>
-    <input type="number" id="normal_velocidad" name="normal_velocidad" min="0" required>
+    <label for="ahorro_velocidad" class="vehicle-required">Velocidad Promedio (km/h)</label>
+    <input type="number" id="ahorro_velocidad" name="ahorro_velocidad" min="0" required>
     <div class="vehicle-help-text" style="color: #e10600;">Por favor ingrese un valor válido</div>
   </div>
   
@@ -556,13 +556,13 @@ btnAbrirModalMonoplaza.onclick = function() {
         Consumo de Combustible (L/100km)
       </div>
       <div>
-        <input type="number" step="0.1" name="normal_comb_seco" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
+        <input type="number" step="0.1" name="ahorro_comb_seco" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
       </div>
       <div>
-        <input type="number" step="0.1" name="normal_comb_lluvia" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
+        <input type="number" step="0.1" name="ahorro_comb_lluvia" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
       </div>
       <div>
-        <input type="number" step="0.1" name="normal_comb_extremo" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
+        <input type="number" step="0.1" name="ahorro_comb_extremo" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
       </div>
     </div>
     
@@ -572,13 +572,13 @@ btnAbrirModalMonoplaza.onclick = function() {
         Desgaste Neumáticos (%/100km)
       </div>
       <div>
-        <input type="number" step="0.1" name="normal_neum_seco" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
+        <input type="number" step="0.1" name="ahorro_neum_seco" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
       </div>
       <div>
-        <input type="number" step="0.1" name="normal_neum_lluvia" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
+        <input type="number" step="0.1" name="ahorro_neum_lluvia" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
       </div>
       <div>
-        <input type="number" step="0.1" name="normal_neum_extremo" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
+        <input type="number" step="0.1" name="ahorro_neum_extremo" min="0" style="width: 100%; padding: 8px; background-color: #333; border: 1px solid #444; color: white; border-radius: 3px;" required>
       </div>
     </div>
   </div>
@@ -615,35 +615,97 @@ btnAbrirModalMonoplaza.onclick = function() {
     formCircuito.onsubmit = function(event) {
         event.preventDefault();
 
-        const nombre = document.getElementById('nombre').value;
-        const photo = document.getElementById('photo')
-        const pais = document.getElementById('pais').value;
-        const longitud = document.getElementById('longitud_km').value;
-        const vueltas = document.getElementById('vueltas').value;
-        const descrip = document.getElementById('descripcion')
-        const tiempor = document.getElementById('tiempo').value;
-        const añor = document.getElementById('ano').value;
-        const pil = document.getElementById('piloto').value;
+        const equipo = document.getElementById('equipo').value;
+        const modelo = document.getElementById('modelo').value;
+        const motor = document.getElementById('motor').value;
+        const model3DLink = document.getElementById('model').value;
+        const imagenURL = document.getElementById('imagen').value;
+            
+        const velocidadMaxima = document.getElementById('velocidad').value;
+        const aceleracion = document.getElementById('aceleracion').value;
+        const pilotosIDs = document.getElementById('pilotos').value;
+            
+        const normalVelocidadPromedio = document.getElementById('normal_velocidad').value;
+        const normalConsumoCombustibleSeco = document.getElementsByName('normal_comb_seco')[0].value;
+        const normalConsumoCombustibleLluvioso = document.getElementsByName('normal_comb_lluvia')[0].value;
+        const normalConsumoCombustibleExtremo = document.getElementsByName('normal_comb_extremo')[0].value;
+        const normalDesgasteNeumaticosSeco = document.getElementsByName('normal_neum_seco')[0].value;
+        const normalDesgasteNeumaticosLluvioso = document.getElementsByName('normal_neum_lluvia')[0].value;
+        const normalDesgasteNeumaticosExtremo = document.getElementsByName('normal_neum_extremo')[0].value;
+            
+        const agresivaVelocidadPromedio = document.getElementById('agresiva_velocidad').value;
+        const agresivaConsumoCombustibleSeco = document.getElementsByName('agresiva_comb_seco')[0].value;
+        const agresivaConsumoCombustibleLluvioso = document.getElementsByName('agresiva_comb_lluvia')[0].value;
+        const agresivaConsumoCombustibleExtremo = document.getElementsByName('agresiva_comb_extremo')[0].value;
+        const agresivaDesgasteNeumaticosSeco = document.getElementsByName('agresiva_neum_seco')[0].value;
+        const agresivaDesgasteNeumaticosLluvioso = document.getElementsByName('agresiva_neum_lluvia')[0].value;
+        const agresivaDesgasteNeumaticosExtremo = document.getElementsByName('agresiva_neum_extremo')[0].value;
+            
+        const ahorroVelocidadPromedio = document.getElementById('ahorro_velocidad').value;
+        const ahorroConsumoCombustibleSeco = document.getElementsByName('ahorro_comb_seco')[0].value;
+        const ahorroConsumoCombustibleLluvioso = document.getElementsByName('ahorro_comb_lluvia')[0].value;
+        const ahorroConsumoCombustibleExtremo = document.getElementsByName('ahorro_comb_extremo')[0].value;
+        const ahorroDesgasteNeumaticosSeco = document.getElementsByName('ahorro_neum_seco')[0].value;
+        const ahorroDesgasteNeumaticosLluvioso = document.getElementsByName('ahorro_neum_lluvia')[0].value;
+        const ahorroDesgasteNeumaticosExtremo = document.getElementsByName('ahorro_neum_extremo')[0].value;
 
         fetch(url)
         .then(response=>response.json())
         .then(data=>{
             let neew = {
-            "id":(data[0].circuitos.length)+1,
-            "nombre":nombre,
-            "photo":photo,
-            "pais":pais,
-            "longitud_km":longitud,
-            "vueltas":vueltas,
-            "descripcion":descrip,
-            "record_vuelta":{
-                "tiempo":tiempor,
-                "piloto":pil,
-                "año":añor
-            }
-        };
+              "id": (data[0].monoplazas.length)+1,
+              "equipo": equipo,
+              "modelo": model3DLink,
+              "model": modelo,
+              "motor": motor,
+              "velocidad_maxima_kmh": velocidadMaxima,
+              "aceleracion_0_100": aceleracion,
+              "piloto": [pilotosIDs],
+              "rendimiento": {
+                "conduccion_normal": {
+                  "velocidad_promedio_kmh": normalVelocidadPromedio,
+                  "consumo_combustible": {
+                    "seco": normalConsumoCombustibleSeco,
+                    "lluvioso": normalConsumoCombustibleLluvioso,
+                    "extremo": normalConsumoCombustibleExtremo
+                  },
+                  "desgaste_neumaticos": {
+                    "seco": normalDesgasteNeumaticosSeco,
+                    "lluvioso": normalDesgasteNeumaticosLluvioso,
+                    "extremo": normalDesgasteNeumaticosExtremo
+                  }
+                },
+                "conduccion_agresiva": {
+                  "velocidad_promedio_kmh": agresivaVelocidadPromedio,
+                  "consumo_combustible": {
+                    "seco": agresivaConsumoCombustibleSeco,
+                    "lluvioso": agresivaConsumoCombustibleLluvioso,
+                    "extremo": agresivaConsumoCombustibleExtremo
+                  },
+                  "desgaste_neumaticos": {
+                    "seco": agresivaDesgasteNeumaticosSeco,
+                    "lluvioso": agresivaDesgasteNeumaticosLluvioso,
+                    "extremo": agresivaDesgasteNeumaticosExtremo
+                  }
+                },
+                "ahorro_combustible": {
+                  "velocidad_promedio_kmh": ahorroVelocidadPromedio,
+                  "consumo_combustible": {
+                    "seco": ahorroConsumoCombustibleSeco,
+                    "lluvioso": ahorroConsumoCombustibleLluvioso,
+                    "extremo": ahorroConsumoCombustibleExtremo
+                  },
+                  "desgaste_neumaticos": {
+                    "seco": ahorroDesgasteNeumaticosSeco,
+                    "lluvioso": ahorroDesgasteNeumaticosLluvioso,
+                    "extremo": ahorroDesgasteNeumaticosExtremo
+                  }
+                }
+              },
+              "imagen": imagenURL
+            };
         let nuv = data[0]
-        nuv.circuitos.push(neew);
+        nuv.monoplazas.push(neew);
 
         fetch(`${url}/1`,{
             method:"PUT",
@@ -654,7 +716,7 @@ btnAbrirModalMonoplaza.onclick = function() {
         })
         })
 
-        console.log('Datos del circuito:', { nombre,photo, pais, longitud, vueltas,descrip, tiempor,añor,pil });
+        console.log('Datos del circuito:', {velocidadMaxima});
         
         
         modal.style.display = 'none';
@@ -664,54 +726,81 @@ btnAbrirModalMonoplaza.onclick = function() {
 };
 
 btnAbrirModalEscuderia.onclick = function() {
-    document.getElementById('modalTitle').textContent = 'Crear Nuevo Escuderia';
+    document.getElementById('modalTitle').textContent = '';
     formCircuito.reset();
     modal.style.display = 'block';
     formCircuito.innerHTML = ``;
 
 
     formCircuito.innerHTML = `
-        <div class="form-group">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
+    <div class="monoplaza-form-container">
+    <div class="monoplaza-form-header">
+        <h2 class="monoplaza-form-title">REGISTRO DE VEHÍCULO DE COMPETICIÓN</h2>
+    </div>
+    
+    <div class="monoplaza-section">
+        <h3 class="monoplaza-section-title">INFORMACIÓN BÁSICA</h3>
+        <div class="monoplaza-row">
+            <div class="monoplaza-col-6">
+                <div class="monoplaza-form-group">
+                    <label for="equipo" class="monoplaza-required">Equipo</label>
+                    <input type="text" id="equipo" name="equipo">
+                    <div class="monoplaza-info-tip">Tu debe ingresar el nombre de equipo</div>
+                </div>
+            </div>
+            <div class="monoplaza-col-6">
+                <div class="monoplaza-form-group">
+                    <label for="modelo" class="monoplaza-required">Modelo</label>
+                    <input type="text" id="modelo" name="modelo">
+                </div>
+            </div>
+            <div class="monoplaza-col-6">
+                <div class="monoplaza-form-group">
+                    <label for="" class="monoplaza-required">Modelo</label>
+                    <input type="text" id="modelo" name="modelo">
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="nombre">Link de la Foto:</label>
-            <input type="text" id="nombre" name="nombre" required>
-        </div>
-        <div class="form-group">
-            <label for="pais">País:</label>
-            <input type="text" id="pais" name="pais" required>
-        </div>
-        <div class="form-group">
-            <label for="longitud">Longitud (km):</label>
-            <input type="number" id="longitud" name="longitud" step="0.01" required>
-        </div>
-        <div class="form-group">
-            <label for="vueltas">Vueltas:</label>
-            <input type="number" id="vueltas" name="vueltas" required>
-        </div>
-        <div class="form-group">
-            <label for="vueltas">Descripcion:</label>
-            <input type="number" id="vueltas" name="vueltas" required>
-        </div>
-        <div class="form-group">
-            <label for="record">Récord:</label>
-            <label for="record">Tiempo:</label>
-            <input type="text" id="record" name="record" placeholder="1:XX.XXX">
-        </div>
-        <div class="form-group">
-            <label for="record">Año:</label>
-            <input type="text" id="record" name="record" placeholder="Año">
-        </div>
-        <div class="form-group">
-            <label for="record">Piloto:</label>
-            <input type="text" id="record" name="record" placeholder="Piloto">
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
-            <button type="submit" class="btn-guardar">Guardar</button>
-        </div>
+        <!-- Más campos... -->
+    </div>
+    
+    <!-- Más secciones... -->
+    
+    <div class="modal-footer">
+        <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
+        <button type="submit" class="btn-guardar">Guardar</button>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+    </div>
+    <div class="form-group">
+        <label for="bg_default">Background Default:</label>
+        <input type="text" id="bg_default" name="bg_default" required>
+    </div>
+    <div class="form-group">
+        <label for="pais">País:</label>
+        <input type="text" id="pais" name="pais" required>
+    </div>
+    <div class="form-group">
+        <label for="motor">Motor:</label>
+        <input type="text" id="motor" name="motor" required>
+    </div>
+    <div class="form-group">
+        <label for="logo">Logo:</label>
+        <input type="text" id="logo" name="logo" required>
+    </div>
+    <div class="form-group">
+        <label for="pilotos">Pilotos (separados por coma):</label>
+        <textarea id="pilotos" name="pilotos" rows="3" placeholder="Nombre1, Nombre2, Nombre3"></textarea>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
+        <button type="submit" class="btn-guardar">Guardar</button>
+    </div>
+
             `;
 
     const btnCancelar = document.getElementById('btnCancelar');
@@ -747,19 +836,14 @@ btnAbrirModalEscuderia.onclick = function() {
         .then(response=>response.json())
         .then(data=>{
             let neew = {
-            "id":(data[0].circuitos.length)+1,
-            "nombre":nombre,
-            "photo":photo,
-            "pais":pais,
-            "longitud_km":longitud,
-            "vueltas":vueltas,
-            "descripcion":descrip,
-            "record_vuelta":{
-                "tiempo":tiempor,
-                "piloto":pil,
-                "año":añor
-            }
-        };
+              "id": (data[0].equipos.length)+1,
+              "nombre": "",
+              "bg_default": "",
+              "pais": "",
+              "motor": "",
+              "logo": "",
+              "pilotos": []
+            };
         let nuv = data[0]
         nuv.circuitos.push(neew);
 

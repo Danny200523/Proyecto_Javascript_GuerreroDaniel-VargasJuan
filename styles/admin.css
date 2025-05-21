@@ -1,4 +1,4 @@
-* {
+    * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -384,4 +384,159 @@ nav ul li a:hover {
     margin-top: 20px;
     padding-top: 20px;
     border-top: 1px solid #333;
+}
+
+/* CSS Adaptado para el Formulario de Monoplaza 
+   Manteniendo la compatibilidad con el estilo base */
+
+/* Estilos específicos para el formulario de monoplaza */
+.monoplaza-form-container {
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    border: 1px solid #333;
+    margin: 20px auto;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+.monoplaza-form-header {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+    text-align: center;
+}
+
+.monoplaza-form-title {
+    color: #e10600;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin: 0;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* Secciones del formulario monoplaza */
+.monoplaza-section {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+}
+
+.monoplaza-section-title {
+    color: #e10600;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Grupos de formulario para monoplaza - usando las clases existentes con modificaciones menores */
+.monoplaza-form-group {
+    margin-bottom: 15px;
+}
+
+.monoplaza-form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.monoplaza-form-group input[type="text"],
+.monoplaza-form-group textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.monoplaza-form-group input[type="text"]:focus,
+.monoplaza-form-group textarea:focus {
+    border-color: #e10600;
+    outline: none;
+    box-shadow: 0 0 5px rgba(225, 6, 0, 0.3);
+}
+
+.monoplaza-required:after {
+    content: " *";
+    color: #e10600;
+}
+
+/* Estilos para tabla de rendimiento */
+.monoplaza-performance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+.monoplaza-performance-table th,
+.monoplaza-performance-table td {
+    padding: 8px;
+    border: 1px solid #444;
+    text-align: center;
+}
+
+.monoplaza-performance-table th {
+    background-color: #222;
+    color: #ffffff;
+}
+
+.monoplaza-performance-table th.condition {
+    color: #e10600;
+}
+
+/* Estructura en filas y columnas */
+.monoplaza-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+
+.monoplaza-col-6 {
+    flex: 0 0 calc(50% - 20px);
+    margin: 0 10px;
+}
+
+.monoplaza-col-4 {
+    flex: 0 0 calc(33.33% - 20px);
+    margin: 0 10px;
+}
+
+/* Estilos para mensajes de error */
+.monoplaza-error-input {
+    border: 1px solid #e10600 !important;
+}
+
+.monoplaza-error-message {
+    color: #e10600;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Estilos para textarea */
+.monoplaza-form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Info tips */
+.monoplaza-info-tip {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+/* Media queries para mantener responsividad */
+@media (max-width: 768px) {
+    .monoplaza-col-6, .monoplaza-col-4 {
+        flex: 0 0 calc(100% - 20px);
+    }
 }
