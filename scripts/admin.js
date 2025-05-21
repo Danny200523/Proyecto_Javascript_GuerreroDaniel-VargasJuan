@@ -14,8 +14,10 @@ document.querySelectorAll('nav a').forEach(anchor => {
 });
 //////////////////////////////////////////////////////////////////
 const url = `https://67f91aad094de2fe6ea07a32.mockapi.io/people/project/F1`;
-const editcircuit = document.querySelector('tbody')
+const editcircuit = document.getElementById('table-circuit')
 const editescuderia = document.getElementById('table-escuderia')
+const editpiloto = document.getElementById('table-pilotos')
+const editmonoplaza = document.getElementById('table-monoplaza')
 
 async function rendercircuit(){
     await fetch(url)
@@ -75,37 +77,68 @@ async function renderEscuderias() {
     editescuderia.innerHTML = html
 })}
 
-// async function renderPilotos() {
-//     await fetch(url)
-//     .then(response=>response.json())
-//     .then(data=>{
-//         console.log(data)
-//         let pilotos = data[0].pilotos
-//         let html = ``;
-//         for (i=0;i<pilotos.length;i++){
-//             let piloto = pilotos[i]
-//             html += `
-//             <tr>
-//                 <td></td>
-//                 <td>${piloto.id}</td>
-//                 <td><img src="${piloto.photo}" alt="${piloto.nombre}" class="img-thumbnail"></td>
-//                 <td>${piloto.nombre}</td>
-//                 <td>${piloto.equipo}</td>
-//                 <td>${piloto.motor}</td>
-//                 <td></td>
-//                 <td>
-//                     <button class="action-btn view-btn">Ver</button>
-//                     <button class="action-btn edit-btn">Editar</button>
-//                     <button class="action-btn delete-btn">Eliminar</button>
-//                 </td>
-//             </tr>
-//             `
-//         }
-//     editescuderia.innerHTML = html
-// })}
+async function renderPilotos() {
+    await fetch(url)
+    .then(response=>response.json())
+    .then(data=>{
+        console.log(data)
+        let pilotos = data[0].pilotos
+        let html = ``;
+        for (i=0;i<pilotos.length;i++){
+            let piloto = pilotos[i]
+            html += `
+            <tr>
+                <td></td>
+                <td>${piloto.id}</td>
+                <td><img src="${piloto.photo}" alt="${piloto.nombre}" class="img-thumbnail"></td>
+                <td>${piloto.nombre}</td>
+                <td>${piloto.escuderia}</td>
+                <td>${piloto.nacionalidad}</td>
+                <td>${piloto.rol}</td>
+                <td>
+                    <button class="action-btn view-btn">Ver</button>
+                    <button class="action-btn edit-btn">Editar</button>
+                    <button class="action-btn delete-btn">Eliminar</button>
+                </td>
+            </tr>
+            `
+        }
+    editpiloto.innerHTML = html
+})}
+
+async function renderMonoplaza() {
+    await fetch(url)
+    .then(response=>response.json())
+    .then(data=>{
+        console.log(data)
+        let monoplazas = data[0].monoplazas
+        let html = ``;
+        for (i=0;i<monoplazas.length;i++){
+            let monoplaza = monoplazas[i]
+            html += `
+            <tr>
+                <td></td>
+                <td>${monoplaza.id}</td>
+                <td><img src="${monoplaza.imagen}" alt="${monoplaza.nombre}" class="img-thumbnail"></td>
+                <td>${monoplaza.modelo}</td>
+                <td>${monoplaza.equipo}</td>
+                <td></td>
+                <td>${monoplaza.motor}</td>
+                <td>${monoplaza.velocidad_maxima_kmh} Km</td>
+                <td>
+                    <button class="action-btn view-btn">Ver</button>
+                    <button class="action-btn edit-btn">Editar</button>
+                    <button class="action-btn delete-btn">Eliminar</button>
+                </td>
+            </tr>
+            `
+        }
+    editmonoplaza.innerHTML = html
+})}
 
 document.addEventListener('DOMContentLoaded',()=>{
     rendercircuit();
     renderEscuderias();
-    // renderPilotos();
+    renderPilotos();
+    renderMonoplaza();
 })
