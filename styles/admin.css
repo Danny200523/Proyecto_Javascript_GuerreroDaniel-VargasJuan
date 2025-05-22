@@ -1,4 +1,4 @@
-* {
+    * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -166,4 +166,377 @@ nav ul li a:hover {
     width: 64px;
     object-fit: cover;
     border-radius: 3px;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #333;
+    width: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #fff;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: #333;
+    border: 1px solid #444;
+    color: white;
+}
+
+.modal-footer {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.btn-guardar {
+    background-color: #00a651;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-cancelar {
+    background-color: #666;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.modal-content{
+    overflow-y: auto;
+}
+
+.vehicle-form-section {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+}
+
+.vehicle-form-title {
+    color: #e10600;
+    font-size: 20px;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #333;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.vehicle-form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px;
+}
+
+.vehicle-form-group {
+    flex: 1 1 300px;
+    margin: 10px;
+}
+
+.vehicle-form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ddd;
+}
+
+.vehicle-form-group input,
+.vehicle-form-group select {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 3px;
+    color: white;
+    font-size: 14px;
+}
+
+.vehicle-form-group input:focus,
+.vehicle-form-group select:focus {
+    outline: none;
+    border-color: #e10600;
+    box-shadow: 0 0 5px rgba(225, 6, 0, 0.3);
+}
+
+.vehicle-required:after {
+    content: " *";
+    color: #e10600;
+}
+
+.vehicle-help-text {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+}
+
+.vehicle-invalid-feedback {
+    color: #e10600;
+    font-size: 12px;
+    display: none;
+}
+
+.vehicle-form-group input:invalid + .vehicle-invalid-feedback {
+    display: block;
+}
+
+.vehicle-performance-grid {
+    display: grid;
+    grid-template-columns: 150px repeat(3, 1fr);
+    gap: 10px;
+    align-items: center;
+}
+
+.vehicle-performance-grid .vehicle-header {
+    font-weight: bold;
+    text-align: center;
+    color: #ddd;
+}
+
+.vehicle-performance-grid .vehicle-label {
+    grid-column: 1;
+    font-weight: bold;
+    color: #ddd;
+}
+
+.vehicle-performance-grid input {
+    padding: 8px;
+    background-color: #333;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 3px;
+}
+
+.vehicle-condition-label {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+    grid-row: 1;
+    color: #e10600;
+}
+
+.vehicle-image-preview {
+    max-width: 100%;
+    height: 120px;
+    border: 1px dashed #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    background-color: #222;
+    overflow: hidden;
+}
+
+.vehicle-image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Mantener los botones con el estilo existente */
+.vehicle-btn-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+/* CSS Adaptado para el Formulario de Monoplaza 
+   Manteniendo la compatibilidad con el estilo base */
+
+/* Estilos específicos para el formulario de monoplaza */
+.monoplaza-form-container {
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    border: 1px solid #333;
+    margin: 20px auto;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+.monoplaza-form-header {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+    text-align: center;
+}
+
+.monoplaza-form-title {
+    color: #e10600;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin: 0;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* Secciones del formulario monoplaza */
+.monoplaza-section {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+}
+
+.monoplaza-section-title {
+    color: #e10600;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Grupos de formulario para monoplaza - usando las clases existentes con modificaciones menores */
+.monoplaza-form-group {
+    margin-bottom: 15px;
+}
+
+.monoplaza-form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.monoplaza-form-group input[type="text"],
+.monoplaza-form-group textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.monoplaza-form-group input[type="text"]:focus,
+.monoplaza-form-group textarea:focus {
+    border-color: #e10600;
+    outline: none;
+    box-shadow: 0 0 5px rgba(225, 6, 0, 0.3);
+}
+
+.monoplaza-required:after {
+    content: " *";
+    color: #e10600;
+}
+
+/* Estilos para tabla de rendimiento */
+.monoplaza-performance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+.monoplaza-performance-table th,
+.monoplaza-performance-table td {
+    padding: 8px;
+    border: 1px solid #444;
+    text-align: center;
+}
+
+.monoplaza-performance-table th {
+    background-color: #222;
+    color: #ffffff;
+}
+
+.monoplaza-performance-table th.condition {
+    color: #e10600;
+}
+
+/* Estructura en filas y columnas */
+.monoplaza-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+
+.monoplaza-col-6 {
+    flex: 0 0 calc(50% - 20px);
+    margin: 0 10px;
+}
+
+.monoplaza-col-4 {
+    flex: 0 0 calc(33.33% - 20px);
+    margin: 0 10px;
+}
+
+/* Estilos para mensajes de error */
+.monoplaza-error-input {
+    border: 1px solid #e10600 !important;
+}
+
+.monoplaza-error-message {
+    color: #e10600;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Estilos para textarea */
+.monoplaza-form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Info tips */
+.monoplaza-info-tip {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+/* Media queries para mantener responsividad */
+@media (max-width: 768px) {
+    .monoplaza-col-6, .monoplaza-col-4 {
+        flex: 0 0 calc(100% - 20px);
+    }
 }

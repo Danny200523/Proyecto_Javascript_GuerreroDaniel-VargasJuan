@@ -42,7 +42,7 @@ class F1Header extends HTMLElement {
           padding: 0.5rem;
           text-decoration: none;
           color: var(--text-color);
-          font-size: 0.9rem;
+          font-size: 2rem;
           text-transform: uppercase;
           letter-spacing: 1px;
           white-space: nowrap;
@@ -74,7 +74,7 @@ class F1Header extends HTMLElement {
           }
 
           nav a {
-            font-size: 1rem;
+            font-size: 2.5rem;
           }
         }
 
@@ -103,7 +103,7 @@ class F1Header extends HTMLElement {
           }
 
           nav a {
-            font-size: 1.4rem;
+            font-size: 3rem;
             margin: 0 1.5rem;
           }
         }
@@ -118,7 +118,7 @@ class F1Header extends HTMLElement {
           }
 
           nav a {
-            font-size: 1.8rem;
+            font-size: 3.5rem;
             margin: 0 2rem;
           }
         }
