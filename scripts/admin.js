@@ -41,11 +41,17 @@ async function renderAll(){
                 <td>${circuito.vueltas}</td>
                 <td>${circuito.record_vuelta.tiempo} (${circuito.record_vuelta.año})</td>
                 <td>
-                    <button id="" class="action-btn edit-btn">Editar</button>
-                    <button id="" class="action-btn delete-btn">Eliminar</button>
+                    <button id="btnupdatecircuit" onclick="btnupdatecircuitos()" data-id="${i}" class="action-btn edit-btn">Editar</button>
+                    <button id="btndeletecircuit" onclick="btndeletecircuitos()" data-id="${i}" class="action-btn delete-btn">Eliminar</button>
                 </td>
             </tr>
-            `
+            `;
+            document.querySelectorAll('.action-btn delete-btn').forEach(button=>{
+            button.addEventListener('click',btndeletecircuitos);
+          })
+            document.querySelectorAll('.action-btn edit-btn').forEach(button=>{
+            button.addEventListener('click',btnupdatecircuitos);
+          })
         }
     editcircuit.innerHTML = html
     let escuderias = data[0].equipos
@@ -62,11 +68,17 @@ async function renderAll(){
                 <td>${escuderia.motor}</td>
                 <td></td>
                 <td>
-                    <button id="" class="action-btn edit-btn">Editar</button>
-                    <button id="" class="action-btn delete-btn">Eliminar</button>
+                    <button id="btnupdateteam" onclick="btnupdateescuderias()" data-id="${i}" class="action-btn edit-btn">Editar</button>
+                    <button id="btndeleteteam" onclick="btndeleteescuderias()" data-id="${i}" class="action-btn delete-btn">Eliminar</button>
                 </td>
             </tr>
-            `
+            `;
+            document.querySelectorAll('.action-btn delete-btn').forEach(button=>{
+              button.addEventListener('click',btndeleteescuderias);
+            })
+              document.querySelectorAll('.action-btn edit-btn').forEach(button=>{
+              button.addEventListener('click',btnupdateescuderias);
+            })
         }
     editescuderia.innerHTML = html1
 
@@ -84,11 +96,17 @@ async function renderAll(){
                 <td>${piloto.nacionalidad}</td>
                 <td>${piloto.rol}</td>
                 <td>
-                    <button id="" class="action-btn edit-btn">Editar</button>
-                    <button id="" class="action-btn delete-btn">Eliminar</button>
+                    <button id="btnupdatepilot" onclick="btnupdatepilotos()" data-id="${i}" class="action-btn edit-btn">Editar</button>
+                    <button id="btndeletepilot" onclick="btndeletepilotos()" data-id="${i}" class="action-btn delete-btn">Eliminar</button>
                 </td>
             </tr>
-            `
+            `;
+            document.querySelectorAll('.action-btn delete-btn').forEach(button=>{
+              button.addEventListener('click',btndeletepilotos);
+            })
+              document.querySelectorAll('.action-btn edit-btn').forEach(button=>{
+              button.addEventListener('click',btnupdatepilotos);
+            })
         }
     editpiloto.innerHTML = html2
 
@@ -107,11 +125,17 @@ async function renderAll(){
                 <td>${monoplaza.motor}</td>
                 <td>${monoplaza.velocidad_maxima_kmh} Km</td>
                 <td>
-                    <button id="" class="action-btn edit-btn">Editar</button>
-                    <button id="" class="action-btn delete-btn">Eliminar</button>
+                    <button id="btnupdatemonoplaz" onclick="btnupdatemonoplazas()" data-id="${i}" class="action-btn edit-btn">Editar</button>
+                    <button id="btndeletemonoplaz" onclick="btndeletemonoplazas()" data-id="${i}" class="action-btn delete-btn">Eliminar</button>
                 </td>
             </tr>
-            `
+            `;
+            document.querySelectorAll('.action-btn delete-btn').forEach(button=>{
+              button.addEventListener('click',btndeletemonoplazas);
+            })
+              document.querySelectorAll('.action-btn edit-btn').forEach(button=>{
+              button.addEventListener('click',btnupdatemonoplazas);
+            })
         }
     editmonoplaza.innerHTML = html3
 })}
@@ -743,68 +767,55 @@ btnAbrirModalEscuderia.onclick = function() {
         <div class="monoplaza-row">
             <div class="monoplaza-col-6">
                 <div class="monoplaza-form-group">
-                    <label for="equipo" class="monoplaza-required">Equipo</label>
-                    <input type="text" id="equipo" name="equipo">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
                     <div class="monoplaza-info-tip">Tu debe ingresar el nombre de equipo</div>
                 </div>
             </div>
             <div class="monoplaza-col-6">
                 <div class="monoplaza-form-group">
-                    <label for="modelo" class="monoplaza-required">Modelo</label>
-                    <input type="text" id="modelo" name="modelo">
+                <label for="bg_default">Background Default:</label>
+                <input type="text" id="bg_default" name="bg_default" required>
                 </div>
             </div>
             <div class="monoplaza-col-6">
                 <div class="monoplaza-form-group">
-                    <label for="" class="monoplaza-required">Modelo</label>
-                    <input type="text" id="modelo" name="modelo">
+                <label for="pais">País:</label>
+                <input type="text" id="pais" name="pais" required>
+                </div>
+            </div>
+            <div class="monoplaza-col-6">
+                <div class="monoplaza-form-group">
+                <label for="motor">Motor:</label>
+                <input type="text" id="motor" name="motor" required>
+                </div>
+            </div>
+            <div class="monoplaza-col-6">
+                <div class="monoplaza-form-group">
+                <label for="logo">Logo:</label>
+                <input type="text" id="logo" name="logo" required>
+                </div>
+            </div>
+            <div class="monoplaza-col-6">
+                <div class="monoplaza-form-group">
+                <label for="pilotos">Pilotos (separados por coma):</label>
+                <textarea id="pilotos" name="pilotos" rows="3" placeholder="id1, id2"></textarea>
                 </div>
             </div>
         </div>
-        <!-- Más campos... -->
+
     </div>
-    
-    <!-- Más secciones... -->
     
     <div class="modal-footer">
         <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
         <button type="submit" class="btn-guardar">Guardar</button>
     </div>
 </div>
-
-<div class="form-group">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required>
-    </div>
-    <div class="form-group">
-        <label for="bg_default">Background Default:</label>
-        <input type="text" id="bg_default" name="bg_default" required>
-    </div>
-    <div class="form-group">
-        <label for="pais">País:</label>
-        <input type="text" id="pais" name="pais" required>
-    </div>
-    <div class="form-group">
-        <label for="motor">Motor:</label>
-        <input type="text" id="motor" name="motor" required>
-    </div>
-    <div class="form-group">
-        <label for="logo">Logo:</label>
-        <input type="text" id="logo" name="logo" required>
-    </div>
-    <div class="form-group">
-        <label for="pilotos">Pilotos (separados por coma):</label>
-        <textarea id="pilotos" name="pilotos" rows="3" placeholder="Nombre1, Nombre2, Nombre3"></textarea>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
-        <button type="submit" class="btn-guardar">Guardar</button>
-    </div>
-
             `;
 
     const btnCancelar = document.getElementById('btnCancelar');
     const span = document.getElementsByClassName('close')[0];
+
     span.onclick = function() {
         modal.style.display = 'none';
     };
@@ -823,29 +834,27 @@ btnAbrirModalEscuderia.onclick = function() {
         event.preventDefault();
 
         const nombre = document.getElementById('nombre').value;
-        const photo = document.getElementById('photo')
+        const bg_default = document.getElementById('bg_default').value;
         const pais = document.getElementById('pais').value;
-        const longitud = document.getElementById('longitud_km').value;
-        const vueltas = document.getElementById('vueltas').value;
-        const descrip = document.getElementById('descripcion')
-        const tiempor = document.getElementById('tiempo').value;
-        const añor = document.getElementById('ano').value;
-        const pil = document.getElementById('piloto').value;
+        const motor = document.getElementById('motor').value;
+        const logo = document.getElementById('logo').value;
+        const pilotos = document.getElementById('pilotos').value;
+
 
         fetch(url)
         .then(response=>response.json())
         .then(data=>{
             let neew = {
               "id": (data[0].equipos.length)+1,
-              "nombre": "",
-              "bg_default": "",
-              "pais": "",
-              "motor": "",
-              "logo": "",
-              "pilotos": []
+              "nombre": nombre,
+              "bg_default": bg_default,
+              "pais": pais,
+              "motor": motor,
+              "logo": logo,
+              "pilotos": [pilotos]
             };
         let nuv = data[0]
-        nuv.circuitos.push(neew);
+        nuv.equipos.push(neew);
 
         fetch(`${url}/1`,{
             method:"PUT",
@@ -864,3 +873,107 @@ btnAbrirModalEscuderia.onclick = function() {
         alert('Circuito guardado correctamente');
     };
 };
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////////                    DELETE CRUD                         ////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+
+function btndeletecircuitos(data){
+  let id = event.target.getAttribute('data-id')
+  console.log(id)
+  fetch(url,{
+    method:"GET"
+  })
+  .then(response=>response.json())
+  .then(data=>{
+    let cir = data[0]
+    cir.circuitos.pop(id)
+    fetch(`${url}/1`,{
+      method:"PUT",
+      headers: {
+        'Content-Type': 'application/json' // Tell server the data is JSON
+      },
+      body: JSON.stringify(cir)
+    })
+  });
+}
+
+function btndeleteescuderias(){
+  let id = event.target.getAttribute('data-id')
+  console.log(id)
+  fetch(url,{
+    method:"GET"
+  })
+  .then(response=>response.json())
+  .then(data=>{
+    let cir = data[0]
+    cir.equipos.pop(id)
+    fetch(`${url}/1`,{
+      method:"PUT",
+      headers: {
+        'Content-Type': 'application/json' // Tell server the data is JSON
+      },
+      body: JSON.stringify(cir)
+    })
+  });
+}
+
+function btndeletepilotos(){
+  let id = event.target.getAttribute('data-id')
+  console.log(id)
+  fetch(url,{
+    method:"GET"
+  })
+  .then(response=>response.json())
+  .then(data=>{
+    let cir = data[0]
+    cir.pilotos.pop(id)
+    fetch(`${url}/1`,{
+      method:"PUT",
+      headers: {
+        'Content-Type': 'application/json' // Tell server the data is JSON
+      },
+      body: JSON.stringify(cir)
+    })
+  });
+}
+
+function btndeletemonoplazas(){
+  let id = event.target.getAttribute('data-id')
+  console.log(id)
+  fetch(url,{
+    method:"GET"
+  })
+  .then(response=>response.json())
+  .then(data=>{
+    let cir = data[0]
+    cir.monoplazas.pop(id)
+    fetch(`${url}/1`,{
+      method:"PUT",
+      headers: {
+        'Content-Type': 'application/json' // Tell server the data is JSON
+      },
+      body: JSON.stringify(cir)
+    })
+  });
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////////                    UPDATE CRUD                         ////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+
+function btnupdatecircuitos(){
+
+}
+
+function btnupdatemonoplazas(){
+
+}
+
+function btnupdatepilotos(){
+  
+}
+
+function btnupdateescuderias(){
+  
+}
