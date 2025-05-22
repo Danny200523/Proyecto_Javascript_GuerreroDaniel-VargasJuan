@@ -41,13 +41,16 @@ async function renderAll(){
                 <td>${circuito.vueltas}</td>
                 <td>${circuito.record_vuelta.tiempo} (${circuito.record_vuelta.año})</td>
                 <td>
-                    <button id="btnupdatecircuit" onclick="btnupdatecircuitos()" data-id="${circuito.id}" class="action-btn edit-btn">Editar</button>
-                    <button id="btndeletecircuit" onclick="btndeletecircuitos()" data-id="${circuito.id}" class="action-btn delete-btn">Eliminar</button>
+                    <button id="btnupdatecircuit" onclick="btnupdatecircuitos()" data-id="${i}" class="action-btn edit-btn">Editar</button>
+                    <button id="btndeletecircuit" onclick="btndeletecircuitos()" data-id="${i}" class="action-btn delete-btn">Eliminar</button>
                 </td>
             </tr>
             `;
             document.querySelectorAll('.action-btn delete-btn').forEach(button=>{
             button.addEventListener('click',btndeletecircuitos);
+          })
+            document.querySelectorAll('.action-btn edit-btn').forEach(button=>{
+            button.addEventListener('click',btnupdatecircuitos);
           })
         }
     editcircuit.innerHTML = html
@@ -65,11 +68,17 @@ async function renderAll(){
                 <td>${escuderia.motor}</td>
                 <td></td>
                 <td>
-                    <button id="btnupdateteam" onclick="btnupdateescuderias()" data-id="${escuderia.id}" class="action-btn edit-btn">Editar</button>
-                    <button id="btndeleteteam" onclick="btndeleteescuderias()" data-id="${escuderia.id}" class="action-btn delete-btn">Eliminar</button>
+                    <button id="btnupdateteam" onclick="btnupdateescuderias()" data-id="${i}" class="action-btn edit-btn">Editar</button>
+                    <button id="btndeleteteam" onclick="btndeleteescuderias()" data-id="${i}" class="action-btn delete-btn">Eliminar</button>
                 </td>
             </tr>
-            `
+            `;
+            document.querySelectorAll('.action-btn delete-btn').forEach(button=>{
+              button.addEventListener('click',btndeleteescuderias);
+            })
+              document.querySelectorAll('.action-btn edit-btn').forEach(button=>{
+              button.addEventListener('click',btnupdateescuderias);
+            })
         }
     editescuderia.innerHTML = html1
 
@@ -87,11 +96,17 @@ async function renderAll(){
                 <td>${piloto.nacionalidad}</td>
                 <td>${piloto.rol}</td>
                 <td>
-                    <button id="btnupdatepilot" onclick="btnupdatepilotos()" data-id="${piloto.id}" class="action-btn edit-btn">Editar</button>
-                    <button id="btndeletepilot" onclick="btndeletepilotos()" data-id="${piloto.id}" class="action-btn delete-btn">Eliminar</button>
+                    <button id="btnupdatepilot" onclick="btnupdatepilotos()" data-id="${i}" class="action-btn edit-btn">Editar</button>
+                    <button id="btndeletepilot" onclick="btndeletepilotos()" data-id="${i}" class="action-btn delete-btn">Eliminar</button>
                 </td>
             </tr>
-            `
+            `;
+            document.querySelectorAll('.action-btn delete-btn').forEach(button=>{
+              button.addEventListener('click',btndeletepilotos);
+            })
+              document.querySelectorAll('.action-btn edit-btn').forEach(button=>{
+              button.addEventListener('click',btnupdatepilotos);
+            })
         }
     editpiloto.innerHTML = html2
 
@@ -110,11 +125,17 @@ async function renderAll(){
                 <td>${monoplaza.motor}</td>
                 <td>${monoplaza.velocidad_maxima_kmh} Km</td>
                 <td>
-                    <button id="btnupdatemonoplaz" onclick="btnupdatemonoplazas()" data-id="${monoplaza.id}" class="action-btn edit-btn">Editar</button>
-                    <button id="btndeletemonoplaz" onclick="btndeletemonoplazas()" data-id="${monoplaza.id}" class="action-btn delete-btn">Eliminar</button>
+                    <button id="btnupdatemonoplaz" onclick="btnupdatemonoplazas()" data-id="${i}" class="action-btn edit-btn">Editar</button>
+                    <button id="btndeletemonoplaz" onclick="btndeletemonoplazas()" data-id="${i}" class="action-btn delete-btn">Eliminar</button>
                 </td>
             </tr>
-            `
+            `;
+            document.querySelectorAll('.action-btn delete-btn').forEach(button=>{
+              button.addEventListener('click',btndeletemonoplazas);
+            })
+              document.querySelectorAll('.action-btn edit-btn').forEach(button=>{
+              button.addEventListener('click',btnupdatemonoplazas);
+            })
         }
     editmonoplaza.innerHTML = html3
 })}
@@ -857,25 +878,102 @@ btnAbrirModalEscuderia.onclick = function() {
 /////////////                    DELETE CRUD                         ////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-function btndeletecircuitos(){
+function btndeletecircuitos(data){
   let id = event.target.getAttribute('data-id')
   console.log(id)
   fetch(url,{
-    
+    method:"GET"
   })
+  .then(response=>response.json())
+  .then(data=>{
+    let cir = data[0]
+    cir.circuitos.pop(id)
+    fetch(`${url}/1`,{
+      method:"PUT",
+      headers: {
+        'Content-Type': 'application/json' // Tell server the data is JSON
+      },
+      body: JSON.stringify(cir)
+    })
+  });
 }
 
 function btndeleteescuderias(){
-  console.log("team")
-  const btnDeleteTeam = document.getElementById('btndeleteteam');
+  let id = event.target.getAttribute('data-id')
+  console.log(id)
+  fetch(url,{
+    method:"GET"
+  })
+  .then(response=>response.json())
+  .then(data=>{
+    let cir = data[0]
+    cir.equipos.pop(id)
+    fetch(`${url}/1`,{
+      method:"PUT",
+      headers: {
+        'Content-Type': 'application/json' // Tell server the data is JSON
+      },
+      body: JSON.stringify(cir)
+    })
+  });
 }
 
 function btndeletepilotos(){
-  console.log("piloto")
-  const btnDeletePilot = document.getElementById('btndeletepilot');
+  let id = event.target.getAttribute('data-id')
+  console.log(id)
+  fetch(url,{
+    method:"GET"
+  })
+  .then(response=>response.json())
+  .then(data=>{
+    let cir = data[0]
+    cir.pilotos.pop(id)
+    fetch(`${url}/1`,{
+      method:"PUT",
+      headers: {
+        'Content-Type': 'application/json' // Tell server the data is JSON
+      },
+      body: JSON.stringify(cir)
+    })
+  });
 }
 
 function btndeletemonoplazas(){
-  console.log("monplaza ")
-  const btnDeleteMonoplaza = document.getElementById('btndeletemonoplaz');
+  let id = event.target.getAttribute('data-id')
+  console.log(id)
+  fetch(url,{
+    method:"GET"
+  })
+  .then(response=>response.json())
+  .then(data=>{
+    let cir = data[0]
+    cir.monoplazas.pop(id)
+    fetch(`${url}/1`,{
+      method:"PUT",
+      headers: {
+        'Content-Type': 'application/json' // Tell server the data is JSON
+      },
+      body: JSON.stringify(cir)
+    })
+  });
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////////                    UPDATE CRUD                         ////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+
+function btnupdatecircuitos(){
+
+}
+
+function btnupdatemonoplazas(){
+
+}
+
+function btnupdatepilotos(){
+  
+}
+
+function btnupdateescuderias(){
+  
 }
