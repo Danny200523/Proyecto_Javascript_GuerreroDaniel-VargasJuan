@@ -4,13 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F1 Simulator - Vehículos</title>
-    <link rel="stylesheet" href="../styles/cars.css">
+    <link rel="stylesheet" href="../styles/compare.css">
     <link rel="shortcut icon" href="../STORAGE/img-dash/Logo.svg" type="image/x-icon">
 </head>
 <body>
     <body>
         <f1-header></f1-header>
+        <div class="container">
+            <h1 class="title">Comparar:</h1>
+            
+            <div class="comparison-wrapper">
+                <!-- Car 1 Section -->
+                <div class="car-section">
+                    <select class="dropdown" id="car1-select">
+                        <option value="">Selecciona un monoplaza</option>
+                    </select>
+                    
+                    <div class="car-image" id="car1-image"></div>
+                    
+                    <div class="specs-section" id="car1-specs">
+                        <div class="loading">Selecciona un monoplaza para ver las especificaciones</div>
+                    </div>
+                </div>
     
+                <!-- VS Divider -->
+                <div class="vs-divider">
+                    <div class="vs-text">VS</div>
+                </div>
+    
+                <!-- Car 2 Section -->
+                <div class="car-section">
+                    <select class="dropdown" id="car2-select">
+                        <option value="">Selecciona un monoplaza</option>
+                    </select>
+                    
+                    <div class="car-image" id="car2-image"></div>
+                    
+                    <div class="specs-section" id="car2-specs">
+                        <div class="loading">Selecciona un monoplaza para ver las especificaciones</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 <script src="../scripts/web.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="../scripts/comparation.js"></script>
 </html>
