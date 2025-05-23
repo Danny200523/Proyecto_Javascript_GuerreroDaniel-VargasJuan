@@ -52,6 +52,111 @@ function mostrar() {
                     equipo:
 
                     ${monoplaza.equipo}.
+
+
+                    rendimiento:
+
+                        conduccion Normal:
+
+                            velocidad promedio km/h:
+
+                            ${monoplaza.rendimiento.conduccion_normal.velocidad_promedio_kmh}
+
+                            consumo combustible:
+
+                                seco:
+
+                                ${monoplaza.rendimiento.conduccion_normal.consumo_combustible.seco}
+
+                                lluvioso:
+
+                                ${monoplaza.rendimiento.conduccion_normal.consumo_combustible.lluvioso}
+
+                                Extremo: 
+
+                                ${monoplaza.rendimiento.conduccion_normal.consumo_combustible.extremo}
+
+                            Desgaste neumaticos:
+
+                                Seco:
+
+                                ${monoplaza.rendimiento.conduccion_normal.desgaste_neumaticos.seco}
+
+                                lluvioso:
+
+                                ${monoplaza.rendimiento.conduccion_normal.desgaste_neumaticos.lluvioso}
+
+                                Extremo:
+
+                                ${monoplaza.rendimiento.conduccion_normal.desgaste_neumaticos.extremo}
+
+                        Conduccion Agresiva:
+
+                            velocidad promedio km/h:
+
+                            ${monoplaza.rendimiento.conduccion_agresiva.velocidad_promedio_kmh}
+
+                            consumo combustible:
+
+                                seco:
+
+                                ${monoplaza.rendimiento.conduccion_agresiva.consumo_combustible.seco}
+
+                                lluvioso:
+
+                                ${monoplaza.rendimiento.conduccion_agresiva.consumo_combustible.lluvioso}
+
+                                Extremo: 
+
+                                ${monoplaza.rendimiento.conduccion_agresiva.consumo_combustible.extremo}
+
+                            Desgaste neumaticos:
+
+                                Seco:
+
+                                ${monoplaza.rendimiento.conduccion_agresiva.desgaste_neumaticos.seco}
+
+                                lluvioso:
+
+                                ${monoplaza.rendimiento.conduccion_agresiva.desgaste_neumaticos.lluvioso}
+
+                                Extremo:
+
+                                ${monoplaza.rendimiento.conduccion_agresiva.desgaste_neumaticos.extremo}
+
+                        Ahorro Combustible:
+
+                            velocidad promedio km/h:
+
+                            ${monoplaza.rendimiento.ahorro_combustible.velocidad_promedio_kmh}
+
+                            consumo combustible:
+
+                                seco:
+
+                                ${monoplaza.rendimiento.ahorro_combustible.consumo_combustible.seco}
+
+                                lluvioso:
+
+                                ${monoplaza.rendimiento.ahorro_combustible.consumo_combustible.lluvioso}
+
+                                Extremo: 
+
+                                ${monoplaza.rendimiento.ahorro_combustible.consumo_combustible.extremo}
+                                
+                            Desgaste neumaticos:
+
+                                Seco:
+
+                                ${monoplaza.rendimiento.ahorro_combustible.desgaste_neumaticos.seco}
+
+                                lluvioso:
+
+                                ${monoplaza.rendimiento.ahorro_combustible.desgaste_neumaticos.lluvioso}
+
+                                Extremo:
+
+                                ${monoplaza.rendimiento.ahorro_combustible.desgaste_neumaticos.extremo}
                     `;
                 });
 
