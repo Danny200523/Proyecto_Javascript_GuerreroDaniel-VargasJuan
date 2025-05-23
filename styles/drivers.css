@@ -5,6 +5,7 @@ body{
     background-color: #000;
     font-family: "Orbitron","Inter";
     color: white;
+    overflow-x: hidden;
 }
 .page-title {
     text-align: center;
@@ -160,3 +161,62 @@ body{
         width: 100%;
     }
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 100px;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-y: auto;
+  }
+  
+  /* Contenido del Modal */
+  .modal-content {
+    background-color: #111; /* Fondo oscuro */
+    color: #f0f0f0; /* Texto claro */
+    margin: auto;
+    margin-top: 7vw;
+    margin-bottom: 10vw;
+    padding: 30px;
+    border-radius: 16px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); /* Sombra roja tenue */
+    border: 1px solid rgba(255, 0, 0, 0.2); /* Borde tenue rojo */
+    animation: fadeIn 0.4s ease-in-out;
+  }
+  
+  /* Botón de cierre */
+  .close {
+    color: #f44336; /* Rojo F1 */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #ff6f61;
+    cursor: pointer;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
+  }
+  
+  /* Animación */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
