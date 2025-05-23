@@ -30,9 +30,19 @@ axios.get(link)
             // Evento para mostrar el modal con info personalizada
             card.addEventListener("click", () => {
                 modal.style.display = "block";
-                modalTitle.innerText = equipo.nombreCompleto;
-                modalImage.src = monoplaza.imagen;
-                modalText.innerText = `Motor: ${equipo.motor} | Copas: ${equipo.copas} | Ingreso F1: ${equipo.entradaEquipo}`;
+                modalTitle.innerText = equipo.nombre;
+                modalImage.src = equipo.logo;
+                modalText.innerText = `
+                Motor: 
+                
+                ${equipo.motor}
+                
+                
+                Pais: 
+                
+                ${equipo.pais}
+                
+                `;
             });
 
             añadirhtml.appendChild(card);
