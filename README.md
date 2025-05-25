@@ -54,6 +54,17 @@ Cada piloto está referenciado por su ID, el cual corresponde a otro listado det
 
 ---
 
+> [!WARNING]  
+> Para entrar al apartado admin esta restringido por seguridad de la api.
+
+> [!IMPORTANT]  
+> Para ingresar a la seccion de Usuario ingrese cualquier contraseña y cualquier usuario.
+
+> [!NOTE]  
+> Proximamente se añadira la opcion de crear usuarios personalizados (coming soon).
+
+---
+
 ## Advertencias y Notas Importantes ⚠️
 
 * **Dependencias Externas**:
