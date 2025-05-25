@@ -21,12 +21,7 @@ function mostrar() {
                         <h3>${monoplaza["modelo"]}</h3>
                     </div>
                     <div class="car-image">
-                        <div class="car-info">
-                            <div class="sketchfab-embed-wrapper">
-                                <iframe title="${monoplaza["modelo"]}" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" 
-                                    src="${monoplaza["model"]}?autostart=1&transparent=1&ui_hint=0"></iframe>
-                            </div>
-                        </div>
+                    <img src="${monoplaza.imagen}">
                     </div>
                     <button class="ver-btn">Ver +</button>
                 `;
@@ -35,7 +30,8 @@ function mostrar() {
                 carDiv.querySelector(".ver-btn").addEventListener("click", () => {
                     modal.style.display = "block";
                     modalContent.querySelector("h2").innerText = monoplaza["modelo"];
-                    modalContent.querySelector("img").src= monoplaza.imagen
+                    modalContent.querySelector("iframe").src= `${monoplaza["model"]}?autostart=1&transparent=1&ui_hint=0`
+                    modalContent.querySelector("iframe").title = monoplaza["modelo"]
                     modalContent.querySelector("p").innerText = `
                     Motor:
                     
